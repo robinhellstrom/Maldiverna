@@ -2519,7 +2519,7 @@
          1. DATA & KONFIGURATION (5 Resorter, 13 Veckor 1 Feb – 30 Apr 2027)
          ======================================================================== */
       const STORAGE_KEY = 'maldiverna_2027_bento_feb_apr_v4';
-      const GOOGLE_IMAGES_CACHE_KEY = 'maldiverna_2027_google_images_cache_v2_20imgs';
+      const GOOGLE_IMAGES_CACHE_KEY = 'maldiverna_2027_images_cache_v3_ving_meeru';
       const GREEN_TAX_PER_NIGHT_FAMILY = 510; // ~12 USD * 4 personer per natt
 
       const FALLBACK_SVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 640'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23030711'/%3E%3Cstop offset='50%25' stop-color='%230B2938'/%3E%3Cstop offset='100%25' stop-color='%230F172A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1000' height='640' fill='url(%23g)'/%3E%3Ccircle cx='780' cy='140' r='55' fill='%23F59E0B' opacity='0.35'/%3E%3Cpath d='M0 460 Q250 420 500 460 T1000 440 L1000 640 L0 640 Z' fill='%2306B6D4' opacity='0.2'/%3E%3Ctext x='500' y='320' font-family='Georgia, serif' font-size='32' fill='%23F8FAFC' text-anchor='middle'%3EMaldiverna 2027 • All Inclusive%3C/text%3E%3C/svg%3E";
@@ -3088,7 +3088,9 @@
         {
           id: 'meeru',
           name: 'Meeru Maldives Resort Island',
-          googleImagesUrl: 'https://www.google.com/search?sca_esv=27e18109783ebaaf&sxsrf=AKL5yDimwAlHu7AcEO_KhBjH2kbl8TIcuQ:1794744866716&udm=2&fbs=ACAhTvx0CAPB6TRWsNnItqaR7Zg81Av7ASYkt5Es4JlvFOzpvzVjjkL8ytAo7yvWkq8-VEZ8AAOMGKUZoxtEdH0yUqQ20ZucRN41hvuHJJFzoNbsT69XSwhjBbN2ZqTSW9gr2HTnN7CIIfGzDrBf1fyCRAN2gxxyjp4SvCehbdXiexThaQj1x-d6_yl2km1JhOhNtvdNLbcI&q=Meeru+Maldives+Resort+Island&sa=X&ved=2ahUKEwjesfjR-YmYAxXiKhAIHZhXFZwQtKgLegQIQxAB&biw=1280&bih=1287&dpr=1',
+          googleImagesUrl: 'https://www.ving.se/maldiverna/meeru-maldives-resort-island',
+          vingImagesUrl: 'https://www.ving.se/maldiverna/meeru-maldives-resort-island',
+          imageSourceLabel: '🖼️ Se alla foton hos Ving ↗',
           googleQuery: 'Meeru Maldives Resort Island',
           officialUrl: 'https://www.meeru.com/',
           officialDomain: 'meeru.com',
@@ -3797,7 +3799,7 @@
                     '<span>📖 Läs mer & se allt som ingår</span>' +
                   '</button>' +
                   '<a href="' + esc(r.googleImagesUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-google-images">' +
-                    '<span>🖼️ Se alla foton på Google Bilder ↗</span>' +
+                    '<span>' + esc(r.imageSourceLabel || '🖼️ Se alla foton på Google Bilder ↗') + '</span>' +
                   '</a>' +
                   '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-official-site">' +
                     '<span>🌐 Officiell hemsida (' + esc(r.officialDomain) + ') ↗</span>' +
@@ -3836,12 +3838,9 @@
               '<td>' + esc(r.matrixSummary.pool) + '</td>' +
               '<td>' + esc(r.matrixSummary.waterpark) + '</td>' +
               '<td>' + esc(r.matrixSummary.waterVillaKids) + '</td>' +
-              '<td style="max-width:250px;">' +
-                '<div style="display:flex; flex-direction:column; gap:4px;">' +
-                  '<a href="' + esc(r.googleImagesUrl) + '" target="_blank" rel="noopener noreferrer" style="color:var(--emerald-light); font-weight:700; text-decoration:underline;">🖼️ Google Bilder ↗</a>' +
-                  '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" style="color:var(--cyan-light); font-weight:700; text-decoration:underline;">🌐 ' + esc(r.officialDomain) + ' ↗</a>' +
-                '</div>' +
-                (note ? '<div style="font-style:italic; color:var(--gold-light); font-size:0.76rem; margin-top:4px;">"' + esc(note) + '"</div>' : '') +
+              '<td style="max-width:240px;">' +
+                '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" style="color:var(--cyan-light); font-weight:700; text-decoration:underline; display:inline-block; margin-bottom:4px;">🌐 ' + esc(r.officialDomain) + ' ↗</a>' +
+                (note ? '<div style="font-style:italic; color:var(--gold-light); font-size:0.76rem;">"' + esc(note) + '"</div>' : '') +
               '</td>' +
             '</tr>'
           );
@@ -3967,7 +3966,7 @@
               '</div>' +
               '<div style="display:flex; gap:8px; flex-wrap:wrap;">' +
                 '<a href="' + esc(r.googleImagesUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-google-images" style="width:auto; padding:9px 14px;">' +
-                  '<span>🖼️ Google Bilder ↗</span>' +
+                  '<span>' + esc(r.id === 'meeru' ? '🖼️ Foton hos Ving ↗' : '🖼️ Google Bilder ↗') + '</span>' +
                 '</a>' +
                 '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-official-site" style="width:auto; padding:9px 14px;">' +
                   '<span>🌐 Besök ' + esc(r.officialDomain) + ' ↗</span>' +
@@ -3996,7 +3995,7 @@
               '</div>' +
               '<div style="display:flex; gap:10px; flex-wrap:wrap;">' +
                 '<a href="' + esc(r.googleImagesUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-google-images" style="width:auto;">' +
-                  '<span>🖼️ Se alla foton på Google Bilder ↗</span>' +
+                  '<span>' + esc(r.imageSourceLabel || '🖼️ Se alla foton på Google Bilder ↗') + '</span>' +
                 '</a>' +
                 '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-official-site" style="width:auto;">' +
                   '<span>🌐 Officiell hemsida (' + esc(r.officialDomain) + ') ↗</span>' +
@@ -4276,21 +4275,25 @@
         const urls = [];
         const seen = new Set();
 
-        // Google Images (udm=2) bäddar in originalbilder i formatet ["https://...",width,height]
-        const regex = /"(https?:\\?\/\\?\/[^"\s<>]+?\.(?:jpg|jpeg|webp)(?:\?[^"\s<>]*)?)"/gi;
+        // Hanterar både Vings bild-CDN (ving.se / thomascook / cloudfront / contentful) och Google Images
+        const regex = /["'(](https?:\\?\/\\?\/[^"'\s<>)]+?\.(?:jpg|jpeg|webp|png)(?:\?[^"'\s<>)]*)?)["')]/gi;
         let match;
         while ((match = regex.exec(rawHtml)) !== null) {
-          const clean = match[1]
+          let clean = match[1]
             .replace(/\\u002F/g, '/')
             .replace(/\\u003d/gi, '=')
             .replace(/\\u0026/gi, '&')
+            .replace(/&amp;/g, '&')
             .replace(/\\\//g, '/')
             .trim();
+
           if (
             clean.indexOf('http') === 0 &&
             clean.indexOf('google.com') === -1 &&
             clean.indexOf('gstatic.com') === -1 &&
             clean.indexOf('wikimedia') === -1 &&
+            clean.indexOf('favicon') === -1 &&
+            clean.indexOf('sprite') === -1 &&
             !seen.has(clean)
           ) {
             seen.add(clean);
@@ -4298,6 +4301,28 @@
           }
         }
         return urls;
+      }
+
+      async function fetchPageHtmlViaCorsProxies(targetUrl) {
+        const proxies = [
+          'https://api.allorigins.win/get?url=' + encodeURIComponent(targetUrl),
+          'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(targetUrl)
+        ];
+
+        for (let p = 0; p < proxies.length; p++) {
+          try {
+            const res = await fetch(proxies[p]);
+            if (!res.ok) continue;
+            if (proxies[p].indexOf('allorigins') !== -1) {
+              const json = await res.json();
+              if (json && json.contents) return json.contents;
+            } else {
+              const text = await res.text();
+              if (text && text.length > 500) return text;
+            }
+          } catch (e) {}
+        }
+        return '';
       }
 
       async function autoFetchImagesFromGoogleLinks() {
@@ -4312,14 +4337,13 @@
 
         for (let i = 0; i < RESORTS.length; i++) {
           const resort = RESORTS[i];
-          if (!resort.googleImagesUrl) continue;
+          const sourceUrl = resort.vingImagesUrl || resort.googleImagesUrl;
+          if (!sourceUrl) continue;
 
           try {
-            const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(resort.googleImagesUrl);
-            const res = await fetch(proxyUrl);
-            if (!res.ok) continue;
-            const data = await res.json();
-            const candidates = parseImageUrlsFromGoogleSearchHtml(data?.contents || '').slice(0, 45);
+            const htmlContent = await fetchPageHtmlViaCorsProxies(sourceUrl);
+            if (!htmlContent) continue;
+            const candidates = parseImageUrlsFromGoogleSearchHtml(htmlContent).slice(0, 60);
 
             const verified = [];
             for (let c = 0; c < candidates.length; c++) {
