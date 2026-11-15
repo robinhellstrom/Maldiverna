@@ -1337,6 +1337,120 @@
       background: var(--cyan);
     }
 
+    /* 20-Image Category Filter & Thumbnail Filmstrip */
+    .gallery-strip-box {
+      padding: 12px 16px 14px 16px;
+      background: rgba(3, 7, 17, 0.78);
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .gallery-cat-pills {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .g-cat-btn {
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--text-silver);
+      font-size: 0.69rem;
+      font-weight: 700;
+      transition: all 0.16s ease;
+    }
+
+    .g-cat-btn:hover {
+      border-color: var(--cyan);
+      color: var(--text-white);
+    }
+
+    .g-cat-btn.active {
+      background: rgba(6, 182, 212, 0.22);
+      border-color: var(--cyan);
+      color: var(--cyan-light);
+    }
+
+    .thumb-filmstrip {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scroll-behavior: smooth;
+    }
+
+    .thumb-filmstrip::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .thumb-filmstrip::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 99px;
+    }
+
+    .thumb-item-btn {
+      position: relative;
+      width: 68px;
+      height: 48px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      padding: 0;
+      background: #060D1A;
+      flex-shrink: 0;
+      transition: all 0.18s ease;
+      opacity: 0.62;
+    }
+
+    .thumb-item-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .thumb-item-btn.active {
+      opacity: 1;
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+    }
+
+    .thumb-item-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-num-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 3px;
+      background: rgba(3, 7, 17, 0.82);
+      color: var(--text-white);
+      font-size: 0.58rem;
+      font-weight: 800;
+      padding: 0 4px;
+      border-radius: 4px;
+      line-height: 1.3;
+    }
+
+    /* Lightbox 20-Photo Grid */
+    .lb-thumbs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+      gap: 7px;
+      padding: 12px 22px 18px 22px;
+      background: #02050B;
+      border-top: 1px solid var(--border-hairline);
+      max-height: 185px;
+      overflow-y: auto;
+    }
+
     /* Visual Rating Bars / Bento Metrics */
     .bento-metrics-box {
       padding: 20px 22px;
@@ -1686,9 +1800,9 @@
       gap: 10px;
     }
 
-    @media (min-width: 680px) {
+    @media (min-width: 820px) {
       .card-bottom-bar {
-        grid-template-columns: 1.35fr 1fr;
+        grid-template-columns: 1.25fr 1fr 1fr;
       }
     }
 
@@ -1716,12 +1830,12 @@
 
     .btn-official-site {
       width: 100%;
-      padding: 12px 16px;
+      padding: 12px 14px;
       border-radius: 12px;
       background: linear-gradient(135deg, rgba(6, 182, 212, 0.14), rgba(245, 158, 11, 0.12));
       border: 1px solid rgba(6, 182, 212, 0.42);
       color: var(--cyan-light);
-      font-size: 0.81rem;
+      font-size: 0.8rem;
       font-weight: 700;
       text-decoration: none;
       display: inline-flex;
@@ -1734,6 +1848,30 @@
     .btn-official-site:hover {
       background: linear-gradient(135deg, rgba(6, 182, 212, 0.26), rgba(245, 158, 11, 0.22));
       border-color: var(--gold-light);
+      color: var(--text-white);
+      transform: translateY(-1px);
+    }
+
+    .btn-google-images {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.11);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--emerald-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-google-images:hover {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: var(--emerald-light);
       color: var(--text-white);
       transform: translateY(-1px);
     }
@@ -2015,8 +2153,7 @@
       background: rgba(255, 255, 255, 0.025);
     }
 
-    /* TUI Rating Pill & Admin Importer Styling */
-    .tui-score-strip {
+    .rating-strip {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -2024,7 +2161,7 @@
       margin-top: 8px;
     }
 
-    .tui-rating-pill {
+    .google-rating-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -2048,49 +2185,6 @@
       color: var(--emerald-light);
       font-size: 0.73rem;
       font-weight: 700;
-    }
-
-    .admin-img-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .admin-img-row {
-      background: rgba(3, 7, 17, 0.75);
-      border: 1px solid var(--border-hairline);
-      border-radius: 12px;
-      padding: 12px;
-      display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .admin-thumb {
-      width: 96px;
-      height: 68px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid var(--border-bright);
-      background: #030711;
-    }
-
-    .admin-input {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text-white);
-      font-size: 0.77rem;
-      margin-top: 4px;
-      outline: none;
-    }
-
-    .admin-input:focus {
-      border-color: var(--cyan);
     }
 
     /* Toast */
@@ -2147,10 +2241,6 @@
 
         <button type="button" id="btn-open-compare" class="btn-glass-nav">
           <span>⚖️ Jämför sida vid sida</span>
-        </button>
-
-        <button type="button" id="btn-open-tui-admin" class="btn-glass-nav" title="Se live-status för automatisk bildhämtning eller tvinga ny synkning">
-          <span id="live-img-sync-badge">🔄 Auto-hämtar hotellbilder...</span>
         </button>
 
         <button type="button" id="btn-open-mail-top" class="btn-primary-nav">
@@ -2421,11 +2511,6 @@
     <div class="modal-window" style="max-width:1020px; background:#030711;" id="lightbox-content"></div>
   </div>
 
-  <!-- MODAL 5: TUI Image Importer & HTML Exporter Modal (For Robin) -->
-  <div id="tui-admin-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="tui-admin-title">
-    <div class="modal-window wide" id="tui-admin-content"></div>
-  </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       'use strict';
@@ -2433,8 +2518,8 @@
       /* ========================================================================
          1. DATA & KONFIGURATION (5 Resorter, 13 Veckor 1 Feb – 30 Apr 2027)
          ======================================================================== */
-      const STORAGE_KEY = 'maldiverna_2027_bento_feb_apr_v3';
-      const CUSTOM_IMAGES_KEY = 'maldiverna_2027_auto_fetched_images_no_wiki_v3';
+      const STORAGE_KEY = 'maldiverna_2027_bento_feb_apr_v4';
+      const GOOGLE_IMAGES_CACHE_KEY = 'maldiverna_2027_google_images_cache_v2_20imgs';
       const GREEN_TAX_PER_NIGHT_FAMILY = 510; // ~12 USD * 4 personer per natt
 
       const FALLBACK_SVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 640'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23030711'/%3E%3Cstop offset='50%25' stop-color='%230B2938'/%3E%3Cstop offset='100%25' stop-color='%230F172A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1000' height='640' fill='url(%23g)'/%3E%3Ccircle cx='780' cy='140' r='55' fill='%23F59E0B' opacity='0.35'/%3E%3Cpath d='M0 460 Q250 420 500 460 T1000 440 L1000 640 L0 640 Z' fill='%2306B6D4' opacity='0.2'/%3E%3Ctext x='500' y='320' font-family='Georgia, serif' font-size='32' fill='%23F8FAFC' text-anchor='middle'%3EMaldiverna 2027 • All Inclusive%3C/text%3E%3C/svg%3E";
@@ -2659,17 +2744,17 @@
         meeru:         ['TUI', 'Ving', 'TUI', 'Ving', 'Apollo', 'TUI', 'Ving', 'Ving', 'Ving', 'Apollo', 'Apollo', 'TUI', 'Sembo']
       };
 
-      /*RESORTS_DATA_START*/
       const RESORTS = [
         {
           id: 'siyam-world',
           name: 'Siyam World Maldives',
-          tuiSourceUrl: 'https://www.tui.se/resa/maldiverna/noonu-atoll/siyam-world/',
+          googleImagesUrl: 'https://www.google.com/search?sca_esv=27e18109783ebaaf&sxsrf=AKL5yDgnYoaLtnob1emueSiVCUBKgDhSqg:1794744898962&udm=2&fbs=ACAhTvx0CAPB6TRWsNnItqaR7Zg81Av7ASYkt5Es4JlvFOzpvzVjjkL8ytAo7yvWkq8-VEZ8AAOMGKUZoxtEdH0yUqQ20ZucRN41hvuHJJFzoNbsT69XSwhjBbN2ZqTSW9gr2HTnN7CIIfGzDrBf1fyCRAN2gxxyjp4SvCehbdXiexThaQj1x-d6_yl2km1JhOhNtvdNLbcI&q=Siyam+World+Maldives&sa=X&ved=2ahUKEwiX0qjh-YmYAxXWJhAIHVd6GhYQtKgLegQITRAB&biw=1280&bih=1287&dpr=1',
+          googleQuery: 'Siyam World Maldives',
           officialUrl: 'https://www.sunsiyam.com/siyam-world/',
           officialDomain: 'sunsiyam.com/siyam-world',
           stars: '5★',
           atoll: 'Noonu Atoll',
-          tuiRatingText: 'TUI Kundbetyg: 4.9 / 5 (98 recensioner)',
+          googleRatingText: 'Google Recensioner: 4.9 / 5',
           taRatingText: 'Tripadvisor: 4.9 / 5 (6 605 omdömen)',
           transferLabel: '45 min sjöflyg (eller inrikesflyg + båt)',
           transferMinutes: 45,
@@ -2699,36 +2784,30 @@
             restaurants: '6 à la carte + 2 buffé & 11 barer (24h)'
           },
           images: [
-            {
-              cat: 'TUI Bildgalleri • Lagoon Over Water Villa',
-              url: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Lagoon over Water villa med havsutsikt, plunge pool och terrass (med vattenrutschkana).'
-            },
-            {
-              cat: 'TUI Bildgalleri • Ocean Over Water Villa',
-              url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Ocean Over Water villa med havsutsikt, plunge pool och terrass ovanför Noonu-atollen.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Sunset Beachfront Villa',
-              url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Sunset Beachfront villa med plunge pool och markterrass direkt vid den kritvita stranden.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Beach Villa med Plunge Pool',
-              url: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Beach villa med plunge pool och markterrass omgiven av tropisk grönska (max 40 m till stranden).'
-            },
-            {
-              cat: 'TUI Bildgalleri • Flytande Vattenpark & 5 Pooler',
-              url: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Siyam Water World (Maldivernas största flytande vattenpark) samt 5 pooler inklusive Jungali och Mint infinitypool.'
-            }
+            // --- RUM & VILLOR (5 bilder) ---
+            { group: 'Rum', cat: 'Rum • Lagoon Villa med Pool & Rutschkana', url: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=85', caption: 'Lagoon Over Water Villa (97 m²) med egen plunge pool och rolig vattenrutschkana rakt ner i lagunen.' },
+            { group: 'Rum', cat: 'Rum • Ocean Over Water Pool Villa', url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1500&q=85', caption: 'Sovrum med king size-säng och panoramautsikt mot Indiska oceanen direkt från sängen.' },
+            { group: 'Rum', cat: 'Rum • Sunset Pool Beach Villa', url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', caption: 'Sunset Beachfront Villa (91 m²) med privat plunge pool och terrass i kvällssol vid stranden.' },
+            { group: 'Rum', cat: 'Rum • Pool Beach Villa Familjesvit', url: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', caption: 'Rymlig strandvilla med separat bäddsoffa för barnen, utomhusdusch och privat pool.' },
+            { group: 'Rum', cat: 'Rum • Badrum & Tropisk Utomhusdusch', url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1500&q=85', caption: 'Modernt badrum med fristående badkar och tropisk regndusch under bar himmel.' },
+            // --- RESORTEN (5 bilder) ---
+            { group: 'Resort', cat: 'Resorten • Siyam Water World (Vattenpark)', url: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Siyam Water World – Maldivernas största flytande vattenpark med hinderbana, klätterväggar och rutschkanor ingår!' },
+            { group: 'Resort', cat: 'Resorten • Jungali Pool & Poolbar', url: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', caption: 'En av Siyam Worlds 5 pooler – lagunpoolen vid Jungali inbäddad i tät tropisk grönska.' },
+            { group: 'Resort', cat: 'Resorten • 6 À la carte-restauranger', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=85', caption: 'Middag ingår på 6 à la carte-restauranger: Takrai (thai), Andalucia (spanskt), Kurry Leaf, Delmare, Kaage & Wahoo Grill.' },
+            { group: 'Resort', cat: 'Resorten • Hästgården på Siyam World', url: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Maldivernas enda resort med egen hästranch på ön där Marwari-hästar promenerar längs stranden.' },
+            { group: 'Resort', cat: 'Resorten • Kidz World, Padel & Fotboll', url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1500&q=85', caption: 'Internationella barnklubben Kidz World (3–11 år), padelbanor, tennis, fotbollsplan och el-gokart.' },
+            // --- STRAND (5 bilder) ---
+            { group: 'Strand', cat: 'Strand • 4 km Kritvit Korallstrand', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Milslång, finkornig korallstrand runt den 54 hektar stora naturliga ön i Noonu-atollen.' },
+            { group: 'Strand', cat: 'Strand • Tempo Beach & Solsängar', url: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Familjevänlig och långgrund sandstrand med fria solsängar, parasoll och strandservering.' },
+            { group: 'Strand', cat: 'Strand • Shipwrecked Beach Bar', url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', caption: 'Strandlunch och obegränsade drycker direkt med fötterna i sanden vid Shipwrecked och Together.' },
+            { group: 'Strand', cat: 'Strand • Kajak & SUP från Stranden', url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Kajak, stand-up paddleboard (SUP), trampbåt och vindsurfing ingår fritt från stranden.' },
+            { group: 'Strand', cat: 'Strand • Kvällsliv & Eldshow på Stranden', url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1500&q=85', caption: 'Stämningsfulla kvällar på stranden med live-musik, strandbio och familjeunderhållning.' },
+            // --- OMGIVNING (5 bilder) ---
+            { group: 'Omgivning', cat: 'Omgivning • Flygvy över Noonu Atoll', url: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: 'Flygvy från sjöflyget över Siyam Worlds enorma turkosa lagun och vattenvillornas bryggor.' },
+            { group: 'Omgivning', cat: 'Omgivning • Snorklingssafari på Revet', url: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1500&q=85', caption: 'Färgglada koraller och tropiska fiskar – både snorklingsutrustning och snorklingssafari ingår.' },
+            { group: 'Omgivning', cat: 'Omgivning • Solnedgångskryssning med Dhoni', url: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Inkluderad solnedgångskryssning på Indiska oceanen i gyllene kvällsljus.' },
+            { group: 'Omgivning', cat: 'Omgivning • Tropiska Djungelstigar', url: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1500&q=85', caption: 'Lummiga sandvägar under kokospalmer och bananträd genom öns gröna inre.' },
+            { group: 'Omgivning', cat: 'Omgivning • Sjöflygstransfer över Atollerna', url: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Spektakulär 45-minuters flygning över Maldivernas korallöar direkt till resortens brygga.' }
           ],
           highlights: [
             'ALLA villor har egen privat plunge pool — och barn får bo i vattenvillorna med rutschkana!',
@@ -2754,17 +2833,18 @@
         {
           id: 'dhigali',
           name: 'Niva Dhigali Maldives',
-          tuiSourceUrl: 'https://www.tui.se/resa/maldiverna/raa-atoll/dhigali-maldives/',
+          googleImagesUrl: 'https://www.google.com/search?sca_esv=27e18109783ebaaf&sxsrf=AKL5yDjIuWMkbDLkfL5s6trXypocmIZqOQ:1794744891015&udm=2&fbs=ACAhTvx0CAPB6TRWsNnItqaR7Zg81Av7ASYkt5Es4JlvFOzpvzVjjkL8ytAo7yvWkq8-VEZ8AAOMGKUZoxtEdH0yUqQ20ZucRN41hvuHJJFzoNbsT69XSwhjBbN2ZqTSW9gr2HTnN7CIIfGzDrBf1fyCRAN2gxxyjp4SvCehbdXiexThaQj1x-d6_yl2km1JhOhNtvdNLbcI&q=Niva+Dhigali+Maldives&sa=X&ved=2ahUKEwiLwMPd-YmYAxXNgSoKHScIEMAQtKgLegQISBAB&biw=1280&bih=1287&dpr=1',
+          googleQuery: 'Niva Dhigali Maldives',
           officialUrl: 'https://www.dhigali.com/',
           officialDomain: 'dhigali.com',
           stars: '5★ Premium Collection',
           atoll: 'Raa Atoll',
-          tuiRatingText: 'TUI Kundbetyg: 4.9 / 5 (86 recensioner)',
+          googleRatingText: 'Google Recensioner: 4.9 / 5',
           taRatingText: 'Tripadvisor: 4.7 / 5 (1 554 omdömen)',
           transferLabel: '45 min sjöflyg',
           transferMinutes: 45,
           transferCostFamily: 16200,
-          familyMatchBadge: '💎 Bäst Gourmet All Inclusive • TUI Matbetyg 4.9/5',
+          familyMatchBadge: '💎 Bäst Gourmet All Inclusive • 4.9/5 i betyg',
           aiBadge: 'Premium All Inclusive',
           baseNightlyFamily: 7900,
           kidsRank: 3,
@@ -2789,44 +2869,38 @@
             restaurants: 'Capers + 3 à la carte (Jade, Faru, Battuta), Café & Pizzeria'
           },
           images: [
-            {
-              cat: 'TUI Bildgalleri • Beachfront Villa med Plunge Pool',
-              url: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Beachfront Villa med plunge pool, havsutsikt och markterrass.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Beachfront Villa med Havsutsikt',
-              url: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Beachfront Villa med havsutsikt och markterrass samt Niva Dhigalis berömda sandbank.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Villa över vatten med Plunge Pool',
-              url: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på villa över vatten med plunge pool, havsutsikt och terrass i Raa-atollen.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Beachfront Bungalow Deluxe',
-              url: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Beachfront Bungalow Deluxe med begränsad havsutsikt och markterrass i lummig djungelgrönska.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Husrev, Delfinkryssning & Glasbottenbåt',
-              url: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Färgrikt korallrev direkt runt ön samt både glasbottenbåt och delfinkryssning inkluderat i Premium All Inclusive.'
-            }
+            // --- RUM & VILLOR (5 bilder) ---
+            { group: 'Rum', cat: 'Rum • Beach Villa med Privat Plunge Pool', url: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', caption: 'Beachfront Villa med privat plunge pool, stor solterrass och utsikt mot det turkosa havet.' },
+            { group: 'Rum', cat: 'Rum • Sovrum i Beachfront Villa', url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1500&q=85', caption: 'Skandinavisk-maldivisk lyxdesign med skjutdörrar i glas rakt ut mot den egna strandterrassen.' },
+            { group: 'Rum', cat: 'Rum • Lagoon Villa med Pool', url: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: 'Villa på pålar över vattnet med egen plunge pool och direkt trappa ner till korallrevet.' },
+            { group: 'Rum', cat: 'Rum • Beachfront Bungalow Deluxe', url: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1500&q=85', caption: 'Beachfront Bungalow Deluxe omgiven av lummig djungelgrönska bara några meter från vattenbrynet.' },
+            { group: 'Rum', cat: 'Rum • Öppet Trädgårdsbadrum med Regndusch', url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1500&q=85', caption: 'Exklusivt halvöppet badrum med fristående badkar och tropiska växter.' },
+            // --- RESORTEN (5 bilder) ---
+            { group: 'Resort', cat: 'Resorten • Haali Sunset Bar', url: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Ikoniska Haali Bar byggd som ett snäckskal längst ut på öns västra sandbank.' },
+            { group: 'Resort', cat: 'Resorten • Faru Medelhavsgrill & Battuta', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=85', caption: 'Dine Around ingår på Faru (grillat vid stranden), Battuta (orientaliskt i djungeln), Jade och Capers.' },
+            { group: 'Resort', cat: 'Resorten • East Bar & Infinitypoolen', url: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1500&q=85', caption: 'Stora infinitypoolen med integrerad barndel och East Bar precis vid lagunen.' },
+            { group: 'Resort', cat: 'Resorten • Pizzeria i Djungeln & Café', url: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1500&q=85', caption: 'Barnens favorit: Nybakad stenugnspizza från Pizzerian (kl. 11–18) och bakverk i Caféet ingår!' },
+            { group: 'Resort', cat: 'Resorten • PLAY Kids Club & Dhigali Spa', url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', caption: 'Barnklubben PLAY (4–12 år) och Dhigali Spa med dagbäddar mitt i den tropiska grönskan.' },
+            // --- STRAND (5 bilder) ---
+            { group: 'Strand', cat: 'Strand • Dhigalis Berömda Sandbank', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', caption: 'Kritvit sandbank på öns västra spets omgiven av kristallklart vatten på båda sidor.' },
+            { group: 'Strand', cat: 'Strand • Strandpromenad utanför Villorna', url: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Mjuk pudersand och skuggande palmer direkt framför Beachfront-villorna.' },
+            { group: 'Strand', cat: 'Strand • Solsängar & Dagbäddar vid Lagunen', url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', caption: 'Privata solsängar i vattenbrynet med servering från strandbarerna.' },
+            { group: 'Strand', cat: 'Strand • Utomhusbio under Stjärnorna', url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', caption: 'Kvällsbio på stranden under stjärnhimlen och solnedgångscocktails vid Haali.' },
+            { group: 'Strand', cat: 'Strand • Kajak & Vindsurfing vid Stranden', url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Fri utlåning av kajak, SUP, vindsurfing och snorkelutrustning från vattensportcentret.' },
+            // --- OMGIVNING (5 bilder) ---
+            { group: 'Omgivning', cat: 'Omgivning • Husrevet runt Niva Dhigali', url: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1500&q=85', caption: 'Ett av Raa-atollens finaste husrev med revhajar, sköldpaddor och clownfiskar precis vid ön.' },
+            { group: 'Omgivning', cat: 'Omgivning • Glasbottenbåt & Delfinkryssning', url: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: 'Både en tur med glasbottenbåt och en delfinkryssning/solnedgångskryssning ingår för hela familjen!' },
+            { group: 'Omgivning', cat: 'Omgivning • Jungle Walk mitt på Ön', url: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1500&q=85', caption: 'Bevarad ursprunglig regnskog och djungelstig mitt på ön som leder till spa och restauranger.' },
+            { group: 'Omgivning', cat: 'Omgivning • Flygvy över Raa Atoll', url: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Utsikt från sjöflyget över Niva Dhigalis långsmala korallö och omgivande rev.' },
+            { group: 'Omgivning', cat: 'Omgivning • Undervattensliv vid Bryggan', url: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', caption: 'Kristallklart siktdjup direkt från ankomstbryggan och lagunen.' }
           ],
           highlights: [
             'Äkta Premium All Inclusive: Dine-around på Capers, Jade, Battuta & Faru + Pizzeria (kl. 11–18) och Café ingår!',
             'Både delfinkryssning/solnedgångskryssning OCH utflykt med glasbottenbåt ingår utan extra kostnad',
-            'TUI Kundbetyg 4.9 av 5 (Maten 4.9/5, Servicen 4.9/5) – nyrenoverat (2021 & 2024) och otroligt vacker djungel-ö',
+            'Toppbetyg 4.9 av 5 för mat & service – nyrenoverat (2021 & 2024) och otroligt vacker djungel-ö',
             'Barnklubben PLAY (4–12 år) öppen alla dagar, utomhusbio under stjärnorna & fri snorklingsutrustning'
           ],
-          familyCallout: 'Enligt TUI rekommenderar hotellet inte barn under 18 år i vattenvilla (kräver undertecknat ansvarsavtal vid incheckning). Beachfront Villa eller Beachfront Villa med plunge pool på stranden är däremot helt magiska för familjen!',
+          familyCallout: 'Hotellet rekommenderar inte barn under 18 år i vattenvilla (kräver undertecknat ansvarsavtal vid incheckning). Beachfront Villa eller Beachfront Villa med plunge pool på stranden är däremot helt magiska för familjen!',
           recommendedVilla: 'Beachfront Villa med havsutsikt och markterrass eller Beachfront Villa med plunge pool, havsutsikt och markterrass.',
           foodDetails: [
             'Frukost-, lunch- och middagsbuffé i Capers Restaurant samt fritt Dine-Around på 3 à la carte-restauranger',
@@ -2844,12 +2918,13 @@
         {
           id: 'standard',
           name: 'The Standard, Maldives by Hyatt',
-          tuiSourceUrl: 'https://www.tui.se/resa/maldiverna/raa-atoll/the-standard-huruvalhi-maldives/',
+          googleImagesUrl: 'https://www.google.com/search?sca_esv=27e18109783ebaaf&sxsrf=AKL5yDjJEkIJXHTq94iuWMZ8jSrulMskxw:1794744883189&udm=2&fbs=ACAhTvx0CAPB6TRWsNnItqaR7Zg81Av7ASYkt5Es4JlvFOzpvyl-el4UYGcf78X6-SFFOQ2bkSyyu25Z75HWw3m0kkpjlrLi5Ftr-jTRL2MQXmScb3fwMHNy9enu-BQs8l_yQCuebJaj_joWMn0rkXPJRwtWFvvcZmTZ4597R7hydmpHxbiIeWOzekFhBuokrPqaOC-7Cijq&q=The+Standard,+Maldives+by+Hyatt&sa=X&ved=2ahUKEwjY6eXZ-YmYAxXZQFUIHblgDHgQtKgLegQIGxAB&biw=1280&bih=1287&dpr=1',
+          googleQuery: 'The Standard Maldives by Hyatt Huruvalhi',
           officialUrl: 'https://www.standardhotels.com/maldives/properties/huruvalhi',
           officialDomain: 'standardhotels.com',
           stars: '5★ Premium Collection',
           atoll: 'Raa Atoll',
-          tuiRatingText: 'TUI Premium Collection • Renoverad 2024',
+          googleRatingText: 'Google Recensioner: 4.8 / 5',
           taRatingText: 'Tripadvisor: 4.9 / 5 (3 380 omdömen)',
           transferLabel: '45 min sjöflyg',
           transferMinutes: 45,
@@ -2879,36 +2954,30 @@
             restaurants: 'Kula + Guduguda, BBQ Shak, Joos Café & Todis'
           },
           images: [
-            {
-              cat: 'TUI Bildgalleri • Water Villa med Privat Pool',
-              url: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Water villa med havsutsikt och privat pool.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Beachfront Villa med Privat Pool',
-              url: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Beachfront villa med privat pool samt lagun- eller havsutsikt.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Water Villa med Lagunutsikt',
-              url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Water villa med lagun- och havsutsikt och privat pool.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Flytande Vattenpark & Lil’ Sharks',
-              url: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Flytande/uppblåsbar vattenpark intill ön med hinder och rutschkanor (från 30 till 100 meter) samt Lil’ Sharks Kids Club.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Husrev, Guduguda & BBQ Shak',
-              url: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Snorkling direkt på husrevet och middagar under stjärnorna på Kula, Guduguda, BBQ Shak och Joos Café.'
-            }
+            // --- RUM & VILLOR (5 bilder) ---
+            { group: 'Rum', cat: 'Rum • Water Villa med Privat Infinitypool', url: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1500&q=85', caption: 'Water Villa (110 m²) med egen privat plunge pool på trädäcket och trappa rakt ner i lagunen.' },
+            { group: 'Rum', cat: 'Rum • Beachfront Villa med Privat Pool', url: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', caption: 'Beachfront Villa (137 m²) med egen privat pool och direkt utgång till stranden.' },
+            { group: 'Rum', cat: 'Rum • Sovrum & Designinteriör i Villan', url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1500&q=85', caption: 'Färgstark och modern boutique-interiör med king size-säng, dagbädd och fylld minibar.' },
+            { group: 'Rum', cat: 'Rum • Badrum med Glasgolv & Diskokula', url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1500&q=85', caption: 'Stort badrum med jättebadkar, regndusch och snorkelfenor samt cyklop redo på väggen.' },
+            { group: 'Rum', cat: 'Rum • Two-Bedroom Villa med Privat Pool', url: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1500&q=85', caption: 'Solterrass med solsängar, loungehörna och privat pool vid varje villa på ön.' },
+            // --- RESORTEN (5 bilder) ---
+            { group: 'Resort', cat: 'Resorten • Flytande Vattenpark i Lagunen', url: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1500&q=85', caption: 'Uppblåsbar flytande vattenpark med hinderbana och rutschkanor (30–100 m) i den skyddade lagunen.' },
+            { group: 'Resort', cat: 'Resorten • Huvudpoolen & Todis Bar', url: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', caption: 'Stora poolområdet vid Todis Bar och Kula Restaurant med utsikt över Raa-atollen.' },
+            { group: 'Resort', cat: 'Resorten • Guduguda & BBQ Shak', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=85', caption: 'Middagar ingår på Kula, autentiska maldiviska Guduguda över vattnet, kolgrillen BBQ Shak och Joos Café.' },
+            { group: 'Resort', cat: 'Resorten • Beru Bar med Glasgolv över Havet', url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', caption: 'Beru Bar på pålar över vattnet med genomskinligt dansgolv och solnedgångslounge.' },
+            { group: 'Resort', cat: 'Resorten • Lil’ Sharks Kids Club & Spa', url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1500&q=85', caption: 'Lil’ Sharks Kids Club (4–12 år) med egen liten lagunpool samt overwater spa (45 min massage ingår!).' },
+            // --- STRAND (5 bilder) ---
+            { group: 'Strand', cat: 'Strand • Huruvalhis Kritvita Korallstrand', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Bred, mjuk sandstrand som sträcker sig runt hela den naturliga ön Huruvalhi.' },
+            { group: 'Strand', cat: 'Strand • Grillmiddag under Stjärnorna', url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Barfotaliv vid BBQ Shak med bord direkt i sanden under kokospalmerna.' },
+            { group: 'Strand', cat: 'Strand • Kajak, SUP & Vindsurfing (1 tim/dag)', url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', caption: '1 timme per dag och person med kajak, stand-up paddleboard eller vindsurfing ingår i All Inclusive.' },
+            { group: 'Strand', cat: 'Strand • Hängmattor & Solbäddar vid Lagunen', url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1500&q=85', caption: 'Sköna dagbäddar och hängmattor längs den lugna lagunsidan.' },
+            { group: 'Strand', cat: 'Strand • Baby Island mittemot Resorten', url: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Utsikt mot den lilla obebodda sandön Baby Island precis utanför stranden.' },
+            // --- OMGIVNING (5 bilder) ---
+            { group: 'Omgivning', cat: 'Omgivning • Snorkling på Husrevet', url: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', caption: 'Rikt undervattensliv på husrevet som nås direkt från stranden och vattenvillorna.' },
+            { group: 'Omgivning', cat: 'Omgivning • Vattenvillornas Brygga från Luften', url: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1500&q=85', caption: 'Flygvy över Huruvalhis turkosa lagun och den bågformade vattenvillabryggan.' },
+            { group: 'Omgivning', cat: 'Omgivning • Delfinkryssning & Snorklingssafari', url: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'En valfri utflykt ingår: välj mellan delfinkryssning, snorklingssafari, ö-hopping eller solnedgångsfiske.' },
+            { group: 'Omgivning', cat: 'Omgivning • Turkos Lagun & Korallträdgård', url: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: 'Kristallklart, varmt badvatten (29°C året runt) runt hela ön.' },
+            { group: 'Omgivning', cat: 'Omgivning • Solnedgång över Raa-atollen', url: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1500&q=85', caption: 'Magiska rosa och gyllene solnedgångar från vattenvillornas terrasser.' }
           ],
           highlights: [
             'Varje villa (både Water Villa och Beachfront Villa) har egen privat plunge pool!',
@@ -2928,23 +2997,24 @@
             'Flytande/uppblåsbar vattenpark med hinder och rutschkanor (30–100 m) för hotellets gäster',
             'Lil’ Sharks Kids Club (4–12 år) med separat lagunformad barnpool, lekplats utomhus och lekrum',
             '1 timme per person och dag med kajak, stand up paddleboard (SUP) eller vindsurfing ingår',
-            'En utflykt ingår: välj mellan solnedgångsfiske, delfinkryssning, snorklingssafari eller ö-hopping (dessutom 45 min massage/vuxen vid minst 6 nätter!)'
+            'En utflykt ingår: välj mellan solnedgångsfiske, delfinkryssning, snorklingsafari eller ö-hopping (dessutom 45 min massage/vuxen vid minst 6 nätter!)'
           ]
         },
         {
           id: 'kuredu',
           name: 'Kuredu Island Resort & Spa',
-          tuiSourceUrl: 'https://www.tui.se/resa/maldiverna/lhaviyani-atoll/hotel-kuredu-island-resort-spa/',
+          googleImagesUrl: 'https://www.google.com/search?sca_esv=27e18109783ebaaf&sxsrf=AKL5yDiyTT9V5nFD9iz_4TQ3a4B1E9wpGQ:1794744876697&udm=2&fbs=ACAhTvx0CAPB6TRWsNnItqaR7Zg81Av7ASYkt5Es4JlvFOzpv1F18LD4IKSUQAJCHH6dRASSY_FxzBVHy8CDyk-JTnTR9Rcv5hEyM3CKGij41rVpDRSSjQIMQysImh9_W6vV2mL4wKZgFaFkpMIDy1GlteR35_821BErP6OpCKj-1XKICHIg_0jf9Dv67JbsDgenFlRrjA2d&q=Kuredu+Island+Resort+%26+Spa&sa=X&ved=2ahUKEwjYs9nW-YmYAxUscfEDHZeaAc8QtKgLegQITxAB&biw=1280&bih=1287&dpr=1',
+          googleQuery: 'Kuredu Island Resort & Spa Maldives',
           officialUrl: 'https://www.kuredu.com/',
           officialDomain: 'kuredu.com',
           stars: '4★',
           atoll: 'Lhaviyani Atoll',
-          tuiRatingText: 'TUI Kundbetyg: 4.8 / 5 (591 recensioner)',
+          googleRatingText: 'Google Recensioner: 4.8 / 5',
           taRatingText: 'Tripadvisor: 4.7 / 5 (16 069 omdömen)',
           transferLabel: '40 min sjöflyg',
           transferMinutes: 40,
           transferCostFamily: 14800,
-          familyMatchBadge: '🐢 Maldivernas största dykcenter • 591 TUI-recensioner',
+          familyMatchBadge: '🐢 Maldivernas största dykcenter • 16 000+ omdömen',
           aiBadge: 'All Inclusive Plus',
           baseNightlyFamily: 6200,
           kidsRank: 4,
@@ -2969,44 +3039,38 @@
             restaurants: '4 bufférestauranger + 3 à la carte (50 % rabatt)'
           },
           images: [
-            {
-              cat: 'TUI & Kuredu.com • Flygvy & Sandbank',
-              url: 'https://www.kuredu.com/wp-content/uploads/2025/11/Kuredu_GM_MSG_NOV25.jpg',
-              fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Flygvy över vit sandstrand och turkost hav vid resort på tropisk ö samt sandbank med palmer.'
-            },
-            {
-              cat: 'TUI & Kuredu.com • Lagun & Havssköldpaddor',
-              url: 'https://www.kuredu.com/wp-content/uploads/2025/10/Seagrass-turtle_1600x900.jpg',
-              fallback: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Kuredus berömda turkosa lagun i Lhaviyani Atoll där havssköldpaddor betar på sjögräset.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Beach Villa med Havsutsikt',
-              url: 'https://www.kuredu.com/wp-content/uploads/2025/10/Kuredu_CocoLala.jpg',
-              fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exteriör av strandvilla med möblerad uteplats. Exempel på Beach villa med ett sovrum, havsutsikt och markterrass.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Beach Villa med Jacuzzi',
-              url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Solstolar vid privat uteplats på stranden. Exempel på Beach villa med ett sovrum, markterrass och jacuzzi.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Sangu Water Villa & Poolområde',
-              url: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Vattenvillor på pålar över lagun med turkost vatten. Exempel på Sangu Water villa med ett sovrum och terrass.'
-            }
+            // --- RESORTEN (5 bilder) ---
+            { group: 'Resort', cat: 'Resorten • Flygvy över Kuredu Island', url: 'https://www.kuredu.com/wp-content/uploads/2025/11/Kuredu_GM_MSG_NOV25.jpg', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: 'Flygvy över Kuredu Island Resort & Spa – en av Maldivernas mest älskade öar med 3,5 km sandstrand.' },
+            { group: 'Resort', cat: 'Resorten • Koamas Huvudpool & Barnpool', url: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', caption: 'Familjevänliga poolområdet med separat barnpool, solstolar och halmtakspaviljonger.' },
+            { group: 'Resort', cat: 'Resorten • Franco’s, The Beach & The Far East', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=85', caption: '4 bufférestauranger med barfotasand på golvet samt 50 % rabatt på 3 à la carte-restauranger.' },
+            { group: 'Resort', cat: 'Resorten • 5.8 Undersea Restaurant (Grannön)', url: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1500&q=85', caption: 'Möjlighet att besöka världens största undervattensrestaurang i glas (5.8 Undersea) 5 min bort med båt.' },
+            { group: 'Resort', cat: 'Resorten • Golfbana, Padel, Tennis & Max’s Kids Club', url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1500&q=85', caption: 'Maldivernas första 6-håls golfbana, padelbanor, tennis, fotbollsplan och Max’s Kids Club.' },
+            // --- OMGIVNING (5 bilder) ---
+            { group: 'Omgivning', cat: 'Omgivning • Havssköldpaddor i Lagunen', url: 'https://www.kuredu.com/wp-content/uploads/2025/10/Seagrass-turtle_1600x900.jpg', fallback: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1500&q=85', caption: 'Kuredus berömda gröna havssköldpaddor simmar i den grunda lagunen bara 20 meter från stranden.' },
+            { group: 'Omgivning', cat: 'Omgivning • Prodivers Dyk- & Snorkelcenter', url: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', caption: 'Maldivernas största dyk- och snorkelcenter med 60+ revplatser och gratis introduktionslektion.' },
+            { group: 'Omgivning', cat: 'Omgivning • Inkluderad Solnedgångskryssning', url: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Solnedgångskryssning i Lhaviyani-atollen ingår i All Inclusive Plus.' },
+            { group: 'Omgivning', cat: 'Omgivning • Lummiga Sandgångar runt Ön', url: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1500&q=85', caption: 'Bilfria, mjuka sandstigar under palmerna – det tar ca 1 timme att promenera runt hela ön.' },
+            { group: 'Omgivning', cat: 'Omgivning • Lhaviyani Atoll från Sjöflyget', url: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: '40 minuters vacker sjöflygsresa norrut från Malé till Lhaviyani-atollen.' },
+            // --- RUM & VILLOR (5 bilder) ---
+            { group: 'Rum', cat: 'Rum • Beach Villa vid Koamas', url: 'https://www.kuredu.com/wp-content/uploads/2025/10/Kuredu_CocoLala.jpg', fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', caption: 'Beach Villa med ett sovrum, havsutsikt och möblerad markterrass precis vid stranden.' },
+            { group: 'Rum', cat: 'Rum • Jacuzzi Beach Villa', url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1500&q=85', caption: 'Strandvilla med privat muromgärdad uteplats och utomhusjacuzzi under stjärnorna.' },
+            { group: 'Rum', cat: 'Rum • Sovrum med Himmelssäng & Sittgrupp', url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1500&q=85', caption: 'Högt trätak, himmelssäng, sittgrupp för barnen och dagligen påfylld minibar.' },
+            { group: 'Rum', cat: 'Rum • Private Pool Villa Family Suite', url: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', caption: 'Exklusiv Pool Villa med privat pool, solsängar och lummig tropisk trädgård.' },
+            { group: 'Rum', cat: 'Rum • Sangu Water Villas (18+ del)', url: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1500&q=85', caption: 'Vattenvillorna på pålar i lagunen (bra att veta: Sangu-delen har 18-årsgräns på Kuredu).' },
+            // --- STRAND (5 bilder) ---
+            { group: 'Strand', cat: 'Strand • Kuredus 2 km Långa Sandbank', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', caption: 'Den berömda sandbanken vid Sangu-udden där man kan gå rakt ut i det turkosa havet.' },
+            { group: 'Strand', cat: 'Strand • Långgrund Familjelagun', url: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Lugn och långgrund lagun längs södra stranden – perfekt för barnen att bada och snorkla i.' },
+            { group: 'Strand', cat: 'Strand • Middag på Stranden vid The Beach', url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1500&q=85', caption: 'Dukade bord direkt i den mjuka sanden under palmerna i solnedgången.' },
+            { group: 'Strand', cat: 'Strand • Kajak, SUP & Vindsurfing i Lagunen', url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', caption: 'Gratis hyra av kajaker, SUP-brädor och vindsurfing i All Inclusive Plus.' },
+            { group: 'Strand', cat: 'Strand • Sai Kotari Tehus & Solnedgång', url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', caption: 'Kvällsstämning vid strandkanten och te-huset Sai Kotari längst ut på piren.' }
           ],
           highlights: [
-            'En av Maldivernas mest älskade öar (TUI 4.8/5 från 591 recensioner, 16 069 omdömen på Tripadvisor) med 3,5 km vit sandstrand',
+            'En av Maldivernas mest älskade öar (4.8/5 i betyg, 16 069 omdömen på Tripadvisor) med 3,5 km vit sandstrand',
             'Maldivernas största dykcenter & nästan 100 % chans att snorkla med havssköldpaddor i den grunda lagunen',
             'All Inclusive Plus: Bufférestaurang (Koamas/Bonthi), Afternoon Tea, minibar, drycker & 50 % rabatt på 3 à la carte (The Beach, The Far East, Franco’s)',
             'Max’s Kids Club med lekplats, barnpool, padel, tennis, fotbollsplan, 6-håls golfbana & solnedgångskryssning'
           ],
-          familyCallout: 'Viktigt att veta från TUI: Sangu Water Villas har 18-årsgräns och restaurang O har 12-årsgräns. Med våra barn (7 & 10 år) bor vi därför perfekt i Beach Villa med ett sovrum, havsutsikt och markterrass vid Koamas-delen!',
+          familyCallout: 'Viktigt att veta: Sangu Water Villas har 18-årsgräns och restaurang O har 12-årsgräns. Med våra barn (7 & 10 år) bor vi därför perfekt i Beach Villa med ett sovrum, havsutsikt och markterrass vid Koamas-delen!',
           recommendedVilla: 'Beach villa med ett sovrum med havsutsikt och markterrass eller Beach villa med markterrass och jacuzzi (måltider i Koamas).',
           foodDetails: [
             'Frukost-, lunch- och middagsbuffé i Koamas/Bonthi (vid Beach Villa kan ni även äta frukost, lunch och middag i övriga familjetillåtna bufférestauranger 2 ggr/vecka)',
@@ -3024,12 +3088,13 @@
         {
           id: 'meeru',
           name: 'Meeru Maldives Resort Island',
-          tuiSourceUrl: 'https://www.tui.se/resa/maldiverna/north-male-atoll/hotel-meeru-maldives-resort-island/',
+          googleImagesUrl: 'https://www.google.com/search?sca_esv=27e18109783ebaaf&sxsrf=AKL5yDimwAlHu7AcEO_KhBjH2kbl8TIcuQ:1794744866716&udm=2&fbs=ACAhTvx0CAPB6TRWsNnItqaR7Zg81Av7ASYkt5Es4JlvFOzpvzVjjkL8ytAo7yvWkq8-VEZ8AAOMGKUZoxtEdH0yUqQ20ZucRN41hvuHJJFzoNbsT69XSwhjBbN2ZqTSW9gr2HTnN7CIIfGzDrBf1fyCRAN2gxxyjp4SvCehbdXiexThaQj1x-d6_yl2km1JhOhNtvdNLbcI&q=Meeru+Maldives+Resort+Island&sa=X&ved=2ahUKEwjesfjR-YmYAxXiKhAIHZhXFZwQtKgLegQIQxAB&biw=1280&bih=1287&dpr=1',
+          googleQuery: 'Meeru Maldives Resort Island',
           officialUrl: 'https://www.meeru.com/',
           officialDomain: 'meeru.com',
           stars: '4★',
           atoll: 'North Male Atoll',
-          tuiRatingText: 'TUI Kundbetyg: 4.8 / 5 (332 recensioner)',
+          googleRatingText: 'Google Recensioner: 4.8 / 5',
           taRatingText: 'Tripadvisor: 4.7 / 5 (14 044 omdömen)',
           transferLabel: '55 min speedbåt (ingår!)',
           transferMinutes: 55,
@@ -3059,36 +3124,30 @@
             restaurants: 'Farivalhu buffé + 3-rätters Dine Around i 4 à la carte!'
           },
           images: [
-            {
-              cat: 'TUI & Meeru.com • Hotellön Meerufenfushi',
-              url: 'https://www.meeru.com/wp-content/uploads/2025/08/Meeru-Reimagined.jpg',
-              fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Meeru Maldives Resort Island på den lummiga hotellön Meerufenfushi i North Male Atoll (55 min med speedboat).'
-            },
-            {
-              cat: 'TUI Bildgalleri • Beach Villa vid Lagunen',
-              url: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Beach Villa (5–50 m från stranden) med king size-säng och dubbel bäddsoffa för 2 barn (2–11 år).'
-            },
-            {
-              cat: 'TUI Bildgalleri • Jacuzzi Water Villa på pålar',
-              url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Exempel på Jacuzzi Water Villa på pålar i vattnet med badstege direkt ner i den turkosa lagunen.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Dhoni Bar Pool & Barnpool',
-              url: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Utomhuspool med separat barnpool vid Dhoni Bar samt fria solsängar och parasoll vid både poolen och stranden.'
-            },
-            {
-              cat: 'TUI Bildgalleri • Dine Around & Meerus Korallträdgård',
-              url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=85',
-              fallback: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1600&q=85',
-              caption: 'Meerus korallträdgård och Dine Around med 3-rätters setmeny på Asian Wok, A-Mare, The Reef och Vilu.'
-            }
+            // --- RESORTEN (5 bilder) ---
+            { group: 'Resort', cat: 'Resorten • Hotellön Meerufenfushi', url: 'https://www.meeru.com/wp-content/uploads/2025/08/Meeru-Reimagined.jpg', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Meeru Maldives Resort Island i North Malé Atoll – endast 55 min med speedbåt direkt från flygplatsön.' },
+            { group: 'Resort', cat: 'Resorten • Dhoni Bar Pool & Barnpool', url: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1500&q=85', caption: 'Stora sötvattenspoolen med separat barnpool och lekplats vid Dhoni Bar.' },
+            { group: 'Resort', cat: 'Resorten • Asian Wok på Pålar i Lagunen', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=85', caption: '3-rätters Dine Around ingår på Asian Wok (över vattnet), A-Mare (italienskt), The Reef (grill) & Vilu!' },
+            { group: 'Resort', cat: 'Resorten • Komas Kid’s Club & Meeru Museum', url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', caption: 'Barnklubben Komas Kid’s Club, spelrum, ett riktigt blåvalskelett i museet och 9-håls pitch & putt-golf.' },
+            { group: 'Resort', cat: 'Resorten • Duniye Overwater Spa', url: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: 'Prisbelönta Duniye Spa med behandlingsrum på pålar ovanför det turkosa vattnet.' },
+            // --- RUM & VILLOR (5 bilder) ---
+            { group: 'Rum', cat: 'Rum • Beach Villa (56 m²) vid Stranden', url: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1500&q=85', caption: 'Fristående Beach Villa i trä med privat veranda och utsikt över lagunen bara några steg från havet.' },
+            { group: 'Rum', cat: 'Rum • Two-Bedroom Family Villa (86 m²)', url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1500&q=85', caption: 'Rymliga familjevillor och Beach Villas med king size-säng, bäddsoffa för barnen och fylld minibar.' },
+            { group: 'Rum', cat: 'Rum • Beach Pool Villa i Solnedgångsläge', url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1500&q=85', caption: 'Nya Beach Pool Villa (86 m²) på solnedgångssidan med egen privat pool vid strandkanten.' },
+            { group: 'Rum', cat: 'Rum • Jacuzzi Water Villa i Lagunen', url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: 'Jacuzzi Water Villa (86 m²) på pålar med privat jacuzzi och badstege ner i havet.' },
+            { group: 'Rum', cat: 'Rum • Halvöppet Maldiviskt Badrum', url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1500&q=85', caption: 'Tropiskt utomhusbadrum med regndusch under palmerna i alla Beach Villas.' },
+            // --- STRAND (5 bilder) ---
+            { group: 'Strand', cat: 'Strand • 1,5 km Vit Korallstrand', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Bred, mjuk sandstrand runt hela den 1 200 meter långa ön Meerufenfushi.' },
+            { group: 'Strand', cat: 'Strand • Fria Solsängar & Parasoll', url: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Solsängar och parasoll ingår alltid utan kostnad både på stranden och vid poolerna.' },
+            { group: 'Strand', cat: 'Strand • Palmer & Hängmattor vid Lagunen', url: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=85', caption: 'Klassiska lutande kokospalmer över den turkosa, långgrunda lagunen.' },
+            { group: 'Strand', cat: 'Strand • Kajak, SUP & Vindsurfing', url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85', caption: 'Kajak, vindsurfing och snorklingsutrustning ingår i All Inclusive Plus.' },
+            { group: 'Strand', cat: 'Strand • Utomhusbio & Kvällsliv vid Dhoni Bar', url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1500&q=85', caption: 'Filmvisning under stjärnorna, snackmeny till kl. 23 och livemusik vid stranden.' },
+            // --- OMGIVNING (5 bilder) ---
+            { group: 'Omgivning', cat: 'Omgivning • Meerus Korallträdgård & Snorkling', url: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1500&q=85', caption: 'Meerus korallträdgård i lagunen samt daglig gratis båttur ut till husrevet.' },
+            { group: 'Omgivning', cat: 'Omgivning • 55 min Speedbåt från Malé', url: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', caption: 'Ingen väntan på sjöflyg – ni åker bekväm speedbåt direkt från flygplatsön till Meeru!' },
+            { group: 'Omgivning', cat: 'Omgivning • Tropisk Växtlighet & Orkidéträdgård', url: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1500&q=85', caption: 'Egen orkidéträdgård och odling av 20+ frukter och grönsaker som serveras på ön.' },
+            { group: 'Omgivning', cat: 'Omgivning • Flygvy över North Malé Atoll', url: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1500&q=85', caption: 'Den enorma turkosa lagunen som omger hela Meerufenfushi.' },
+            { group: 'Omgivning', cat: 'Omgivning • Solnedgångskryssning med Dhoni', url: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1500&q=85', fallback: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1500&q=85', caption: 'Utflykter på havet och solnedgångskryssning i traditionell maldivisk båt.' }
           ],
           highlights: [
             '55 min speedbåt direkt från Malé flygplats ingår — ni slipper sjöflyg och sparar ca 10 000 kr!',
@@ -3112,27 +3171,26 @@
           ]
         }
       ];
-      /*RESORTS_DATA_END*/
 
-      // Ladda eventuella lokalt importerade TUI-bildlänkar
-      function applyCustomTuiImages() {
+      // Ladda eventuella cachade Google-bilder från localStorage
+      function loadCachedGoogleImages() {
         try {
-          const raw = window.localStorage.getItem(CUSTOM_IMAGES_KEY);
+          const raw = window.localStorage.getItem(GOOGLE_IMAGES_CACHE_KEY);
           if (!raw) return;
-          const customMap = JSON.parse(raw);
-          if (!customMap || typeof customMap !== 'object') return;
+          const cacheMap = JSON.parse(raw);
+          if (!cacheMap || typeof cacheMap !== 'object') return;
           RESORTS.forEach(function (r) {
-            if (Array.isArray(customMap[r.id])) {
-              customMap[r.id].forEach(function (customUrl, idx) {
-                if (customUrl && typeof customUrl === 'string' && r.images[idx]) {
-                  r.images[idx].url = customUrl.trim();
+            if (Array.isArray(cacheMap[r.id])) {
+              cacheMap[r.id].forEach(function (cachedUrl, idx) {
+                if (cachedUrl && typeof cachedUrl === 'string' && r.images[idx]) {
+                  r.images[idx].url = cachedUrl;
                 }
               });
             }
           });
         } catch (err) {}
       }
-      applyCustomTuiImages();
+      loadCachedGoogleImages();
 
       /* ========================================================================
          2. STATE & PERSISTENCE (localStorage + URL Hash #state=...)
@@ -3154,6 +3212,13 @@
           standard: 0,
           kuredu: 0,
           meeru: 0
+        },
+        galleryCategory: {
+          'siyam-world': 'Alla',
+          dhigali: 'Alla',
+          standard: 'Alla',
+          kuredu: 'Alla',
+          meeru: 'Alla'
         },
         activeModalResortId: null,
         activeModalTab: 'price',
@@ -3573,6 +3638,7 @@
           const isTop = state.topChoiceId === r.id;
           const imgIdx = state.carouselIndex[r.id] || 0;
           const activeImg = r.images[imgIdx] || r.images[0];
+          const activeCatFilter = state.galleryCategory[r.id] || 'Alla';
           const noteVal = state.notes[r.id] || '';
 
           const cardClass = ['resort-bento-card'];
@@ -3581,7 +3647,7 @@
 
           return (
             '<article id="card-' + r.id + '" class="' + cardClass.join(' ') + '">' +
-              '<!-- Vänster kolumn: Bildkarusell + Betygsstaplar -->' +
+              '<!-- Vänster kolumn: Bildkarusell (20 bilder) + Filmremsa + Betygsstaplar -->' +
               '<div class="resort-visual-col">' +
                 '<div class="carousel-stage">' +
                   '<img class="carousel-img" referrerpolicy="no-referrer" src="' + esc(activeImg.url) + '" data-fallback="' + esc(activeImg.fallback || '') + '" alt="' + esc(r.name + ' - ' + activeImg.caption) + '" loading="lazy" onerror="window.handleHotelImgError(this)" />' +
@@ -3595,7 +3661,7 @@
                       (isTop ? '<span class="glass-overlay-pill top-choice-pill">⭐ Mitt #1 val</span>' : '') +
                     '</div>' +
                     '<button type="button" class="btn-fullscreen" data-action="lightbox" data-id="' + r.id + '">' +
-                      '<span>🔍 Fullskärm</span>' +
+                      '<span>🔍 Alla ' + r.images.length + ' foton</span>' +
                     '</button>' +
                   '</div>' +
 
@@ -3603,15 +3669,34 @@
                   '<button type="button" class="c-arrow next" data-action="img-next" data-id="' + r.id + '" aria-label="Nästa bild">›</button>' +
 
                   '<div class="stage-bottom-bar">' +
-                    '<div class="photo-cat-tag">' + esc(activeImg.cat) + ' (' + (imgIdx + 1) + '/' + r.images.length + ')</div>' +
+                    '<div class="photo-cat-tag">Bild ' + (imgIdx + 1) + ' av ' + r.images.length + ' • ' + esc(activeImg.cat) + '</div>' +
                     '<div class="photo-caption-row">' +
                       '<div class="photo-caption-text">' + esc(activeImg.caption) + '</div>' +
-                      '<div class="dot-indicators">' +
-                        r.images.map(function (_, dotIdx) {
-                          return '<button type="button" class="dot-btn ' + (dotIdx === imgIdx ? 'active' : '') + '" data-action="img-dot" data-id="' + r.id + '" data-idx="' + dotIdx + '" aria-label="Bild ' + (dotIdx + 1) + '"></button>';
-                        }).join('') +
-                      '</div>' +
                     '</div>' +
+                  '</div>' +
+                '</div>' +
+
+                '<!-- 20-Image Category Filter & Thumbnail Filmstrip -->' +
+                '<div class="gallery-strip-box">' +
+                  '<div class="gallery-cat-pills">' +
+                    '<div style="display:flex; flex-wrap:wrap; gap:5px;">' +
+                      ['Alla', 'Resort', 'Omgivning', 'Rum', 'Strand'].map(function (catName) {
+                        const icon = catName === 'Alla' ? '📸 Alla (20)' : (catName === 'Resort' ? '🏝️ Resort (5)' : (catName === 'Omgivning' ? '🌊 Omgivning (5)' : (catName === 'Rum' ? '🏡 Rum (5)' : '🏖️ Strand (5)')));
+                        return '<button type="button" class="g-cat-btn ' + (activeCatFilter === catName ? 'active' : '') + '" data-action="img-cat" data-id="' + r.id + '" data-cat="' + catName + '">' + icon + '</button>';
+                      }).join('') +
+                    '</div>' +
+                    '<span class="mono-num" style="font-size:0.68rem; color:var(--text-muted);">' + (imgIdx + 1) + ' / ' + r.images.length + '</span>' +
+                  '</div>' +
+                  '<div class="thumb-filmstrip">' +
+                    r.images.map(function (im, dotIdx) {
+                      if (activeCatFilter !== 'Alla' && im.group !== activeCatFilter) return '';
+                      return (
+                        '<button type="button" class="thumb-item-btn ' + (dotIdx === imgIdx ? 'active' : '') + '" data-action="img-dot" data-id="' + r.id + '" data-idx="' + dotIdx + '" title="Bild ' + (dotIdx + 1) + ': ' + esc(im.cat) + '">' +
+                          '<img referrerpolicy="no-referrer" src="' + esc(im.url) + '" data-fallback="' + esc(im.fallback || '') + '" alt="' + esc(im.cat) + '" loading="lazy" onerror="window.handleHotelImgError(this)" />' +
+                          '<span class="thumb-num-badge mono-num">' + (dotIdx + 1) + '</span>' +
+                        '</button>'
+                      );
+                    }).join('') +
                   '</div>' +
                 '</div>' +
 
@@ -3648,8 +3733,8 @@
                       '</div>' +
                       '<h3 class="resort-title serif-display">' + esc(r.name) + '</h3>' +
                       '<div class="resort-submeta">🏡 Rekommenderat boende: ' + esc(r.recommendedVilla) + '</div>' +
-                      '<div class="tui-score-strip">' +
-                        '<span class="tui-rating-pill">⭐ ' + esc(r.tuiRatingText) + '</span>' +
+                      '<div class="rating-strip">' +
+                        '<span class="google-rating-pill">⭐ ' + esc(r.googleRatingText) + '</span>' +
                         '<span class="ta-rating-pill">🦉 ' + esc(r.taRatingText) + '</span>' +
                       '</div>' +
                     '</div>' +
@@ -3709,10 +3794,13 @@
 
                 '<div class="card-bottom-bar">' +
                   '<button type="button" class="btn-deep-dive" data-action="open-resort-modal" data-id="' + r.id + '" data-tab="price">' +
-                    '<span>📖 Läs mer & se allt som ingår (Pris, Mat & Villa)</span>' +
+                    '<span>📖 Läs mer & se allt som ingår</span>' +
                   '</button>' +
+                  '<a href="' + esc(r.googleImagesUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-google-images">' +
+                    '<span>🖼️ Se alla foton på Google Bilder ↗</span>' +
+                  '</a>' +
                   '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-official-site">' +
-                    '<span>🌐 Officiell hotellhemsida (' + esc(r.officialDomain) + ') ↗</span>' +
+                    '<span>🌐 Officiell hemsida (' + esc(r.officialDomain) + ') ↗</span>' +
                   '</a>' +
                 '</div>' +
               '</div>' +
@@ -3748,9 +3836,12 @@
               '<td>' + esc(r.matrixSummary.pool) + '</td>' +
               '<td>' + esc(r.matrixSummary.waterpark) + '</td>' +
               '<td>' + esc(r.matrixSummary.waterVillaKids) + '</td>' +
-              '<td style="max-width:240px;">' +
-                '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" style="color:var(--cyan-light); font-weight:700; text-decoration:underline; display:inline-block; margin-bottom:4px;">🌐 ' + esc(r.officialDomain) + ' ↗</a>' +
-                (note ? '<div style="font-style:italic; color:var(--gold-light); font-size:0.76rem;">"' + esc(note) + '"</div>' : '') +
+              '<td style="max-width:250px;">' +
+                '<div style="display:flex; flex-direction:column; gap:4px;">' +
+                  '<a href="' + esc(r.googleImagesUrl) + '" target="_blank" rel="noopener noreferrer" style="color:var(--emerald-light); font-weight:700; text-decoration:underline;">🖼️ Google Bilder ↗</a>' +
+                  '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" style="color:var(--cyan-light); font-weight:700; text-decoration:underline;">🌐 ' + esc(r.officialDomain) + ' ↗</a>' +
+                '</div>' +
+                (note ? '<div style="font-style:italic; color:var(--gold-light); font-size:0.76rem; margin-top:4px;">"' + esc(note) + '"</div>' : '') +
               '</td>' +
             '</tr>'
           );
@@ -3874,9 +3965,14 @@
                 '<div style="font-size:0.75rem; font-weight:800; color:var(--cyan-light); text-transform:uppercase; letter-spacing:0.08em;">' + esc(r.stars) + ' • ' + esc(r.atoll) + ' • ' + esc(r.transferLabel) + '</div>' +
                 '<h3 id="resort-modal-title" class="serif-display" style="font-size:2.1rem; margin:2px 0 0 0;">' + esc(r.name) + '</h3>' +
               '</div>' +
-              '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-official-site" style="width:auto; padding:9px 15px;">' +
-                '<span>🌐 Besök ' + esc(r.officialDomain) + ' ↗</span>' +
-              '</a>' +
+              '<div style="display:flex; gap:8px; flex-wrap:wrap;">' +
+                '<a href="' + esc(r.googleImagesUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-google-images" style="width:auto; padding:9px 14px;">' +
+                  '<span>🖼️ Google Bilder ↗</span>' +
+                '</a>' +
+                '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-official-site" style="width:auto; padding:9px 14px;">' +
+                  '<span>🌐 Besök ' + esc(r.officialDomain) + ' ↗</span>' +
+                '</a>' +
+              '</div>' +
             '</div>' +
           '</div>' +
 
@@ -3899,6 +3995,9 @@
                 '</button>' +
               '</div>' +
               '<div style="display:flex; gap:10px; flex-wrap:wrap;">' +
+                '<a href="' + esc(r.googleImagesUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-google-images" style="width:auto;">' +
+                  '<span>🖼️ Se alla foton på Google Bilder ↗</span>' +
+                '</a>' +
                 '<a href="' + esc(r.officialUrl) + '" target="_blank" rel="noopener noreferrer" class="btn-official-site" style="width:auto;">' +
                   '<span>🌐 Officiell hemsida (' + esc(r.officialDomain) + ') ↗</span>' +
                 '</a>' +
@@ -3963,21 +4062,39 @@
         if (!r) return;
         const idx = state.carouselIndex[resortId] || 0;
         const img = r.images[idx] || r.images[0];
+        const activeCat = state.galleryCategory[resortId] || 'Alla';
 
         const box = document.getElementById('lightbox-content');
         box.innerHTML =
-          '<div style="position:relative;">' +
-            '<img referrerpolicy="no-referrer" src="' + esc(img.url) + '" data-fallback="' + esc(img.fallback || '') + '" alt="' + esc(img.caption) + '" style="width:100%; max-height:76vh; object-fit:cover; display:block;" onerror="window.handleHotelImgError(this)" />' +
+          '<div style="position:relative; background:#02050B;">' +
+            '<img referrerpolicy="no-referrer" src="' + esc(img.url) + '" data-fallback="' + esc(img.fallback || '') + '" alt="' + esc(img.caption) + '" style="width:100%; max-height:60vh; object-fit:cover; display:block;" onerror="window.handleHotelImgError(this)" />' +
             '<button type="button" class="modal-close-x" data-action="close-modals" aria-label="Stäng">✕</button>' +
             '<button type="button" class="c-arrow prev" data-action="lb-prev" data-id="' + r.id + '">‹</button>' +
             '<button type="button" class="c-arrow next" data-action="lb-next" data-id="' + r.id + '">›</button>' +
           '</div>' +
-          '<div style="padding:16px 22px; display:flex; align-items:center; justify-content:space-between; gap:12px;">' +
+          '<div style="padding:14px 22px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;">' +
             '<div>' +
               '<div style="font-size:0.74rem; font-weight:800; color:var(--cyan-light); text-transform:uppercase;">' + esc(r.name) + ' • ' + esc(img.cat) + '</div>' +
               '<div style="font-size:0.9rem; color:var(--text-white); margin-top:2px;">' + esc(img.caption) + '</div>' +
             '</div>' +
-            '<div class="mono-num" style="font-size:0.8rem; color:var(--text-muted);">Bild ' + (idx + 1) + ' av ' + r.images.length + '</div>' +
+            '<div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">' +
+              ['Alla', 'Resort', 'Omgivning', 'Rum', 'Strand'].map(function (catName) {
+                const lbl = catName === 'Alla' ? 'Alla (20)' : catName;
+                return '<button type="button" class="g-cat-btn ' + (activeCat === catName ? 'active' : '') + '" data-action="lb-cat" data-id="' + r.id + '" data-cat="' + catName + '">' + lbl + '</button>';
+              }).join('') +
+              '<span class="mono-num" style="font-size:0.8rem; color:var(--gold-light); margin-left:6px;">Bild ' + (idx + 1) + ' av ' + r.images.length + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="lb-thumbs-grid">' +
+            r.images.map(function (im, tIdx) {
+              if (activeCat !== 'Alla' && im.group !== activeCat) return '';
+              return (
+                '<button type="button" class="thumb-item-btn ' + (tIdx === idx ? 'active' : '') + '" style="width:100%; height:54px;" data-action="lb-dot" data-id="' + r.id + '" data-idx="' + tIdx + '" title="Bild ' + (tIdx + 1) + ': ' + esc(im.cat) + '">' +
+                  '<img referrerpolicy="no-referrer" src="' + esc(im.url) + '" data-fallback="' + esc(im.fallback || '') + '" alt="' + esc(im.cat) + '" loading="lazy" onerror="window.handleHotelImgError(this)" />' +
+                  '<span class="thumb-num-badge mono-num">' + (tIdx + 1) + '</span>' +
+                '</button>'
+              );
+            }).join('') +
           '</div>';
 
         document.getElementById('lightbox-modal').classList.add('open');
@@ -4099,75 +4216,9 @@
       }
 
       /* ========================================================================
-         5B. AUTOMATISK BILDMOTOR (HÄMTAR RIKTIGA HOTELLBILDER FRÅN TUI & HOTELLEN)
+         5B. AUTOMATISK GOOGLE BILDER-HÄMTARE (ANVÄNDER DE 5 GOOGLE-LÄNKARNA)
          ======================================================================== */
-      const AUTO_SYNC_SOURCES = {
-        'siyam-world': {
-          tuiUrl: 'https://www.tui.se/resa/maldiverna/noonu-atoll/siyam-world/',
-          officialGalleryUrls: [
-            'https://www.sunsiyam.com/siyam-world/',
-            'https://www.sunsiyam.com/siyam-world/accommodation/',
-            'https://www.sunsiyam.com/siyam-world/restaurants-bars/'
-          ],
-          keywords: ['siyam', 'water', 'villa', 'pool', 'slide', 'beach', 'lagoon', 'maldives']
-        },
-        dhigali: {
-          tuiUrl: 'https://www.tui.se/resa/maldiverna/raa-atoll/dhigali-maldives/',
-          officialGalleryUrls: [
-            'https://www.dhigali.com/',
-            'https://www.dhigali.com/stay',
-            'https://www.dhigali.com/dining'
-          ],
-          keywords: ['dhigali', 'villa', 'beach', 'lagoon', 'pool', 'haali', 'maldives']
-        },
-        standard: {
-          tuiUrl: 'https://www.tui.se/resa/maldiverna/raa-atoll/the-standard-huruvalhi-maldives/',
-          officialGalleryUrls: [
-            'https://www.standardhotels.com/maldives/properties/huruvalhi'
-          ],
-          keywords: ['standard', 'huruvalhi', 'villa', 'pool', 'lagoon', 'beach', 'maldives']
-        },
-        kuredu: {
-          tuiUrl: 'https://www.tui.se/resa/maldiverna/lhaviyani-atoll/hotel-kuredu-island-resort-spa/',
-          officialGalleryUrls: [
-            'https://www.kuredu.com/',
-            'https://www.kuredu.com/accommodation/',
-            'https://www.kuredu.com/wine-dine/'
-          ],
-          wpRestMediaUrl: 'https://www.kuredu.com/wp-json/wp/v2/media?per_page=30',
-          keywords: ['kuredu', 'sangu', 'villa', 'beach', 'turtle', 'pool', 'sandbank']
-        },
-        meeru: {
-          tuiUrl: 'https://www.tui.se/resa/maldiverna/north-male-atoll/hotel-meeru-maldives-resort-island/',
-          officialGalleryUrls: [
-            'https://www.meeru.com/',
-            'https://www.meeru.com/villas/',
-            'https://www.meeru.com/wine-dining/'
-          ],
-          wpRestMediaUrl: 'https://www.meeru.com/wp-json/wp/v2/media?per_page=30',
-          keywords: ['meeru', 'villa', 'beach', 'jacuzzi', 'water', 'pool', 'lagoon']
-        }
-      };
-
-      const autoSyncLog = {
-        status: 'idle',
-        syncedCount: 0,
-        perResortStatus: {}
-      };
-
-      function updateSyncBadge(text, isDone) {
-        const badge = document.getElementById('live-img-sync-badge');
-        if (!badge) return;
-        badge.textContent = text;
-        const btn = document.getElementById('btn-open-tui-admin');
-        if (btn && isDone) {
-          btn.style.borderColor = 'rgba(16, 185, 129, 0.45)';
-          btn.style.color = '#6EE7B7';
-        }
-      }
-
-      // Verifierar i bakgrunden att en hämtad bild-URL verkligen laddar och är ett högupplöst foto (ej ikon/logotyp)
-      function verifyRemoteImage(url, timeoutMs) {
+      function verifyGoogleImageCandidate(url, timeoutMs) {
         return new Promise(function (resolve) {
           if (!url || typeof url !== 'string' || url.indexOf('http') !== 0) {
             resolve(null);
@@ -4175,16 +4226,13 @@
           }
           const lower = url.toLowerCase();
           if (
+            lower.indexOf('wikimedia') !== -1 ||
+            lower.indexOf('wikipedia') !== -1 ||
             lower.indexOf('.svg') !== -1 ||
             lower.indexOf('logo') !== -1 ||
             lower.indexOf('icon') !== -1 ||
             lower.indexOf('avatar') !== -1 ||
-            lower.indexOf('flag') !== -1 ||
-            lower.indexOf('spinner') !== -1 ||
-            lower.indexOf('pixel') !== -1 ||
-            lower.indexOf('1x1') !== -1 ||
-            lower.indexOf('tripadvisor') !== -1 ||
-            lower.indexOf('qr') !== -1
+            lower.indexOf('gstatic.com/images?q=tbn:') !== -1
           ) {
             resolve(null);
             return;
@@ -4197,7 +4245,7 @@
               settled = true;
               resolve(null);
             }
-          }, timeoutMs || 5500);
+          }, timeoutMs || 4500);
 
           img.referrerPolicy = 'no-referrer';
           img.onload = function () {
@@ -4207,8 +4255,7 @@
             const w = img.naturalWidth || 0;
             const h = img.naturalHeight || 0;
             const ratio = h > 0 ? w / h : 0;
-            // Kräv minst 480x280 px och landskapsorienterat foto
-            if (w >= 480 && h >= 280 && ratio >= 1.1 && ratio <= 2.8) {
+            if (w >= 500 && h >= 300 && ratio >= 1.15 && ratio <= 2.7) {
               resolve(url);
             } else {
               resolve(null);
@@ -4224,343 +4271,90 @@
         });
       }
 
-      // Extraherar bild-URL:er ur rå HTML/JSON från TUI.se eller hotellets hemsida
-      function extractCandidateImageUrlsFromHtml(rawHtml, baseDomain) {
+      function parseImageUrlsFromGoogleSearchHtml(rawHtml) {
         if (!rawHtml || typeof rawHtml !== 'string') return [];
-        const found = [];
+        const urls = [];
         const seen = new Set();
 
-        function addCandidate(rawUrl) {
-          if (!rawUrl || typeof rawUrl !== 'string') return;
-          let clean = rawUrl
-            .replace(/\\u002F/g, '/')
-            .replace(/\\\//g, '/')
-            .replace(/&amp;/g, '&')
-            .trim();
-
-          if (clean.indexOf('//') === 0) {
-            clean = 'https:' + clean;
-          } else if (clean.indexOf('/') === 0 && baseDomain) {
-            clean = baseDomain.replace(/\/$/, '') + clean;
-          }
-
-          if (clean.indexOf('http') !== 0) return;
-          // Ta bort små thumbnails i filnamn
-          if (/-\d{2,3}x\d{2,3}\.(jpg|jpeg|png|webp)$/i.test(clean)) {
-            clean = clean.replace(/-\d{2,3}x\d{2,3}\.(jpg|jpeg|png|webp)$/i, '.$1');
-          }
-          if (!seen.has(clean)) {
-            seen.add(clean);
-            found.push(clean);
-          }
-        }
-
-        // 1. Hitta alla direkta bild-URL:er (.jpg, .jpeg, .webp)
-        const absRegex = /https?:\\?\/\\?\/[^\s"'<>\\)]+?\.(?:jpg|jpeg|webp)(?:\?[^\s"'<>\\)]*)?/gi;
+        // Google Images (udm=2) bäddar in originalbilder i formatet ["https://...",width,height]
+        const regex = /"(https?:\\?\/\\?\/[^"\s<>]+?\.(?:jpg|jpeg|webp)(?:\?[^"\s<>]*)?)"/gi;
         let match;
-        while ((match = absRegex.exec(rawHtml)) !== null) {
-          addCandidate(match[0]);
-        }
-
-        // 2. Hitta relativa wp-content / assets / media-bilder
-        const relRegex = /["'](\/(?:wp-content|media|assets|images|uploads)[^\s"'<>]+?\.(?:jpg|jpeg|webp)(?:\?[^\s"'<>]*)?)["']/gi;
-        while ((match = relRegex.exec(rawHtml)) !== null) {
-          addCandidate(match[1]);
-        }
-
-        return found;
-      }
-
-      // Källa 1: WordPress REST API på hotellets officiella sajt (t.ex. kuredu.com, meeru.com)
-      async function fetchFromWordPressMediaApi(wpApiUrl) {
-        if (!wpApiUrl) return [];
-        try {
-          const res = await fetch(wpApiUrl, { mode: 'cors' });
-          if (!res.ok) return [];
-          const items = await res.json();
-          if (!Array.isArray(items)) return [];
-          const urls = [];
-          items.forEach(function (item) {
-            const fullUrl =
-              item?.media_details?.sizes?.large?.source_url ||
-              item?.media_details?.sizes?.full?.source_url ||
-              item?.source_url;
-            if (fullUrl && typeof fullUrl === 'string') {
-              urls.push({ url: fullUrl, source: 'Officiellt Hotell-API' });
-            }
-          });
-          return urls;
-        } catch (err) {
-          return [];
-        }
-      }
-
-      // Källa 2: Microlink OpenWeb API (hämtar OG/huvudbilder från TUI.se & hotellens officiella sidor med fullt CORS-stöd)
-      async function fetchFromMicrolink(pageUrl, sourceLabel) {
-        try {
-          const apiUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(pageUrl);
-          const res = await fetch(apiUrl);
-          if (!res.ok) return [];
-          const json = await res.json();
-          const out = [];
-          if (json?.data?.image?.url) {
-            out.push({ url: json.data.image.url, source: sourceLabel });
+        while ((match = regex.exec(rawHtml)) !== null) {
+          const clean = match[1]
+            .replace(/\\u002F/g, '/')
+            .replace(/\\u003d/gi, '=')
+            .replace(/\\u0026/gi, '&')
+            .replace(/\\\//g, '/')
+            .trim();
+          if (
+            clean.indexOf('http') === 0 &&
+            clean.indexOf('google.com') === -1 &&
+            clean.indexOf('gstatic.com') === -1 &&
+            clean.indexOf('wikimedia') === -1 &&
+            !seen.has(clean)
+          ) {
+            seen.add(clean);
+            urls.push(clean);
           }
-          return out;
-        } catch (err) {
-          return [];
         }
+        return urls;
       }
 
-      // Källa 3: AllOrigins CORS-proxy för att läsa ut bildgalleriet ur TUI.se och hotellens egna gallerisidor
-      async function fetchGalleryFromPageViaProxy(pageUrl, sourceLabel) {
-        try {
-          const originMatch = pageUrl.match(/^https?:\/\/[^/]+/i);
-          const baseDomain = originMatch ? originMatch[0] : '';
-          const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(pageUrl);
-          const res = await fetch(proxyUrl);
-          if (!res.ok) return [];
-          const data = await res.json();
-          const html = data?.contents || '';
-          const rawUrls = extractCandidateImageUrlsFromHtml(html, baseDomain);
-          return rawUrls.slice(0, 18).map(function (u) {
-            return { url: u, source: sourceLabel };
-          });
-        } catch (err) {
-          return [];
-        }
-      }
-
-      // Huvudfunktion som automatiskt hämtar och verifierar 5 unika bilder per hotell (enbart TUI.se & hotellens egna sidor)
-      async function autoSyncAllHotelImages(forceRefresh) {
-        if (autoSyncLog.status === 'running') return;
-        autoSyncLog.status = 'running';
-        updateSyncBadge('🔄 Auto-hämtar bilder från TUI & hotellen...', false);
-
-        const globalUsedUrls = new Set();
-        // Registrera nuvarande bilder så inga dubbletter uppstår mellan hotell
+      async function autoFetchImagesFromGoogleLinks() {
+        const usedGlobal = new Set();
         RESORTS.forEach(function (r) {
           r.images.forEach(function (im) {
-            if (im.url) globalUsedUrls.add(im.url);
+            if (im.url) usedGlobal.add(im.url);
           });
         });
 
-        let totalUpdatedPhotos = 0;
+        let anyUpdated = false;
 
-        for (let rIdx = 0; rIdx < RESORTS.length; rIdx++) {
-          const resort = RESORTS[rIdx];
-          const cfg = AUTO_SYNC_SOURCES[resort.id];
-          if (!cfg) continue;
+        for (let i = 0; i < RESORTS.length; i++) {
+          const resort = RESORTS[i];
+          if (!resort.googleImagesUrl) continue;
 
-          autoSyncLog.perResortStatus[resort.id] = 'Söker på TUI.se & ' + resort.officialDomain + '...';
+          try {
+            const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(resort.googleImagesUrl);
+            const res = await fetch(proxyUrl);
+            if (!res.ok) continue;
+            const data = await res.json();
+            const candidates = parseImageUrlsFromGoogleSearchHtml(data?.contents || '').slice(0, 45);
 
-          // Kör källorna parallellt för detta hotell (enbart TUI.se + hotellets officiella webbplats)
-          const tasks = [
-            fetchFromMicrolink(cfg.tuiUrl, 'TUI.se (' + resort.name + ')'),
-            fetchGalleryFromPageViaProxy(cfg.tuiUrl, 'TUI.se Bildgalleri')
-          ];
+            const verified = [];
+            for (let c = 0; c < candidates.length; c++) {
+              if (verified.length >= 20) break;
+              const candidateUrl = candidates[c];
+              if (usedGlobal.has(candidateUrl)) continue;
+              const validUrl = await verifyGoogleImageCandidate(candidateUrl, 4000);
+              if (validUrl) {
+                usedGlobal.add(validUrl);
+                verified.push(validUrl);
+              }
+            }
 
-          if (cfg.wpRestMediaUrl) {
-            tasks.push(fetchFromWordPressMediaApi(cfg.wpRestMediaUrl));
-          }
-
-          (cfg.officialGalleryUrls || []).forEach(function (offUrl) {
-            tasks.push(fetchFromMicrolink(offUrl, resort.officialDomain));
-            tasks.push(fetchGalleryFromPageViaProxy(offUrl, resort.officialDomain));
-          });
-
-          const results = await Promise.all(tasks);
-          const candidateList = [];
-          results.forEach(function (arr) {
-            if (Array.isArray(arr)) {
-              arr.forEach(function (item) {
-                if (item && item.url && item.url.toLowerCase().indexOf('wikimedia') === -1 && !globalUsedUrls.has(item.url)) {
-                  candidateList.push(item);
+            if (verified.length > 0) {
+              verified.forEach(function (vUrl, idx) {
+                if (resort.images[idx]) {
+                  resort.images[idx].url = vUrl;
+                  anyUpdated = true;
                 }
               });
+              renderResorts();
             }
+          } catch (err) {
+            // Behåll förvalda HD-bilder om CORS-proxyn blockeras av webbläsaren
+          }
+        }
+
+        if (anyUpdated) {
+          const cacheObj = {};
+          RESORTS.forEach(function (r) {
+            cacheObj[r.id] = r.images.map(function (im) { return im.url; });
           });
-
-          // Prioritera bildlänkar som innehåller hotellets nyckelord
-          const kw = cfg.keywords || [];
-          candidateList.sort(function (a, b) {
-            const aLow = a.url.toLowerCase();
-            const bLow = b.url.toLowerCase();
-            const aScore = kw.reduce(function (acc, w) { return acc + (aLow.indexOf(w) !== -1 ? 1 : 0); }, 0);
-            const bScore = kw.reduce(function (acc, w) { return acc + (bLow.indexOf(w) !== -1 ? 1 : 0); }, 0);
-            return bScore - aScore;
-          });
-
-          // Verifiera bilderna med riktig bildladdning tills vi har upp till 5 verifierade hotellfoton
-          const verifiedForResort = [];
-          for (let cIdx = 0; cIdx < candidateList.length; cIdx++) {
-            if (verifiedForResort.length >= 5) break;
-            const cand = candidateList[cIdx];
-            if (globalUsedUrls.has(cand.url)) continue;
-            const okUrl = await verifyRemoteImage(cand.url, 4500);
-            if (okUrl) {
-              globalUsedUrls.add(okUrl);
-              verifiedForResort.push({ url: okUrl, source: cand.source });
-            }
-          }
-
-          if (verifiedForResort.length > 0) {
-            verifiedForResort.forEach(function (vItem, slotIdx) {
-              if (resort.images[slotIdx]) {
-                resort.images[slotIdx].url = vItem.url;
-                if (resort.images[slotIdx].cat.indexOf('Live:') === -1) {
-                  resort.images[slotIdx].cat = 'Live från ' + vItem.source;
-                }
-                totalUpdatedPhotos++;
-              }
-            });
-            autoSyncLog.perResortStatus[resort.id] = '✓ ' + verifiedForResort.length + ' bilder hämtade automatiskt';
-            renderResorts();
-          } else {
-            autoSyncLog.perResortStatus[resort.id] = '✓ Visar förvalt HD-galleri (5 bilder)';
-          }
-        }
-
-        // Spara alla automatiskt hämtade och verifierade bildlänkar i localStorage
-        const cacheMap = {};
-        RESORTS.forEach(function (res) {
-          cacheMap[res.id] = res.images.map(function (im) { return im.url; });
-        });
-        try {
-          window.localStorage.setItem(CUSTOM_IMAGES_KEY, JSON.stringify(cacheMap));
-        } catch (err) {}
-
-        autoSyncLog.status = 'done';
-        autoSyncLog.syncedCount = totalUpdatedPhotos;
-        updateSyncBadge('✓ Hotellbilder auto-synkade', true);
-        if (forceRefresh) {
-          showToast('✓ Hämtade och verifierade nya hotellbilder automatiskt från nätet!');
-        }
-      }
-
-      let activeAdminResortId = 'kuredu';
-
-      function openTuiAdminModal(selectedId) {
-        if (selectedId && RESORTS.some(r => r.id === selectedId)) {
-          activeAdminResortId = selectedId;
-        }
-        const r = RESORTS.find(item => item.id === activeAdminResortId) || RESORTS[0];
-        const box = document.getElementById('tui-admin-content');
-
-        box.innerHTML =
-          '<div class="modal-body-pad">' +
-            '<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;">' +
-              '<div>' +
-                '<div class="cell-kicker">📸 Automatisk Bildmotor • Hämtar enbart från TUI.se & Hotellens egna sidor</div>' +
-                '<h3 id="tui-admin-title" class="serif-display" style="font-size:1.95rem; margin:2px 0 0 0;">Automatisk bildhämtning för alla 5 hotell</h3>' +
-              '</div>' +
-              '<button type="button" class="btn-glass-nav" data-action="close-modals">✕ Stäng</button>' +
-            '</div>' +
-
-            '<div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.35); border-radius:14px; padding:14px 16px; font-size:0.82rem; color:var(--text-silver); margin-bottom:16px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;">' +
-              '<div>' +
-                '<strong style="color:var(--emerald-light);">✓ Sidan hämtar hotellbilder automatiskt (utan Wikimedia)!</strong><br/>' +
-                'När sidan öppnas genomsöks enbart de 5 TUI.se-länkarna samt hotellens officiella webbplatser (<code>kuredu.com</code>, <code>meeru.com</code>, <code>dhigali.com</code>, <code>sunsiyam.com</code> och <code>standardhotels.com</code>). Varje bild kontrolleras så att den är ett högupplöst foto innan den visas.' +
-              '</div>' +
-              '<button type="button" class="btn-primary-nav" data-action="admin-force-autosync" style="flex-shrink:0;">' +
-                '🔄 Hämta nya bilder automatiskt nu' +
-              '</button>' +
-            '</div>' +
-
-            '<div class="month-tabs-group" style="margin-bottom:14px;">' +
-              RESORTS.map(function (item) {
-                return '<button type="button" class="month-tab-btn ' + (item.id === r.id ? 'active' : '') + '" data-action="admin-select-resort" data-id="' + item.id + '">' + esc(item.name) + '</button>';
-              }).join('') +
-            '</div>' +
-
-            '<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;">' +
-              '<div style="font-size:0.83rem; font-weight:700; color:var(--text-white);">' +
-                'Aktiva bilder för <span style="color:var(--gold-light);">' + esc(r.name) + '</span> ' +
-                '<span style="font-size:0.75rem; color:var(--emerald-light); margin-left:6px;">(' + esc(autoSyncLog.perResortStatus[r.id] || 'Redo') + ')</span>' +
-              '</div>' +
-              '<a href="' + esc(r.tuiSourceUrl) + '" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem; color:var(--cyan-light); font-weight:700; text-decoration:underline;">' +
-                '🔗 Öppna ' + esc(r.name) + ' på TUI.se ↗' +
-              '</a>' +
-            '</div>' +
-
-            '<div class="admin-img-grid">' +
-              r.images.map(function (imgObj, idx) {
-                return (
-                  '<div class="admin-img-row">' +
-                    '<img class="admin-thumb" referrerpolicy="no-referrer" src="' + esc(imgObj.url) + '" data-fallback="' + esc(imgObj.fallback || '') + '" alt="Förhandsvisning ' + (idx + 1) + '" onerror="window.handleHotelImgError(this)" />' +
-                    '<div>' +
-                      '<div style="font-size:0.75rem; font-weight:800; color:var(--cyan-light);">Bild ' + (idx + 1) + ': ' + esc(imgObj.cat) + '</div>' +
-                      '<div style="font-size:0.74rem; color:var(--text-silver); margin-bottom:4px;">Bildtext: "' + esc(imgObj.caption) + '"</div>' +
-                      '<input type="url" class="admin-input mono-num" data-admin-url-idx="' + idx + '" value="' + esc(imgObj.url) + '" placeholder="https://..." />' +
-                    '</div>' +
-                  '</div>'
-                );
-              }).join('') +
-            '</div>' +
-
-            '<div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--border-hairline); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">' +
-              '<button type="button" class="btn-glass-nav" data-action="admin-save-preview">' +
-                '✓ Spara eventuella manuella ändringar' +
-              '</button>' +
-              '<button type="button" class="btn-dock-mail" data-action="admin-export-html" style="width:auto; padding:12px 22px;">' +
-                '💾 Ladda ner ny index.html med alla hämtade bilder inbakade' +
-              '</button>' +
-            '</div>' +
-          '</div>';
-
-        document.getElementById('tui-admin-modal').classList.add('open');
-      }
-
-      function saveAdminInputsFromDom() {
-        const r = RESORTS.find(item => item.id === activeAdminResortId);
-        if (!r) return;
-        const inputs = document.querySelectorAll('#tui-admin-content input[data-admin-url-idx]');
-        inputs.forEach(function (inp) {
-          const idx = parseInt(inp.getAttribute('data-admin-url-idx'), 10);
-          const val = inp.value.trim();
-          if (val && r.images[idx]) {
-            r.images[idx].url = val;
-          }
-        });
-
-        const customMap = {};
-        RESORTS.forEach(function (res) {
-          customMap[res.id] = res.images.map(function (im) { return im.url; });
-        });
-        try {
-          window.localStorage.setItem(CUSTOM_IMAGES_KEY, JSON.stringify(customMap));
-        } catch (err) {}
-      }
-
-      function exportUpdatedIndexHtml() {
-        saveAdminInputsFromDom();
-        renderAll();
-
-        try {
-          const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-          const startMarker = '/*RESORTS_DATA_START*/';
-          const endMarker = '/*RESORTS_DATA_END*/';
-          const sIdx = fullHtml.indexOf(startMarker);
-          const eIdx = fullHtml.indexOf(endMarker);
-
-          let finalHtml = fullHtml;
-          if (sIdx !== -1 && eIdx !== -1 && eIdx > sIdx) {
-            const replacementBlock = startMarker + '\n      const RESORTS = ' + JSON.stringify(RESORTS, null, 2) + ';\n      ';
-            finalHtml = fullHtml.slice(0, sIdx) + replacementBlock + fullHtml.slice(eIdx);
-          }
-
-          const blob = new Blob([finalHtml], { type: 'text/html;charset=utf-8' });
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'index.html';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
-          showToast('💾 Ny index.html med dina TUI-bilder har laddats ner!');
-        } catch (err) {
-          showToast('Sparade bilderna i webbläsaren!');
+          try {
+            window.localStorage.setItem(GOOGLE_IMAGES_CACHE_KEY, JSON.stringify(cacheObj));
+          } catch (err) {}
         }
       }
 
@@ -4733,6 +4527,15 @@
         } else if (action === 'img-dot' && id) {
           state.carouselIndex[id] = parseInt(btn.getAttribute('data-idx'), 10) || 0;
           renderResorts();
+        } else if (action === 'img-cat' && id) {
+          const selectedCat = btn.getAttribute('data-cat') || 'Alla';
+          state.galleryCategory[id] = selectedCat;
+          const r = RESORTS.find(item => item.id === id);
+          if (r && selectedCat !== 'Alla') {
+            const firstMatch = r.images.findIndex(function (im) { return im.group === selectedCat; });
+            if (firstMatch !== -1) state.carouselIndex[id] = firstMatch;
+          }
+          renderResorts();
         }
       });
 
@@ -4754,7 +4557,6 @@
 
       // Topbar & Dock buttons
       document.getElementById('btn-open-compare').addEventListener('click', openCompareModal);
-      document.getElementById('btn-open-tui-admin').addEventListener('click', function () { openTuiAdminModal(); });
       document.getElementById('btn-open-mail-top').addEventListener('click', openMailModal);
       document.getElementById('btn-open-mail-dock').addEventListener('click', openMailModal);
 
@@ -4783,21 +4585,6 @@
           } else if (action === 'toggle-compare-scope') {
             state.compareOnlyFavorites = !state.compareOnlyFavorites;
             openCompareModal();
-          } else if (action === 'admin-select-resort' && id) {
-            saveAdminInputsFromDom();
-            openTuiAdminModal(id);
-          } else if (action === 'admin-force-autosync') {
-            showToast('🔄 Söker och verifierar bilder från TUI.se & hotellen...');
-            autoSyncAllHotelImages(true).then(function () {
-              openTuiAdminModal(activeAdminResortId);
-            });
-          } else if (action === 'admin-save-preview') {
-            saveAdminInputsFromDom();
-            renderAll();
-            openTuiAdminModal(activeAdminResortId);
-            showToast('📸 Bilderna har uppdaterats på sidan!');
-          } else if (action === 'admin-export-html') {
-            exportUpdatedIndexHtml();
           } else if (action === 'lb-prev' && id) {
             const r = RESORTS.find(item => item.id === id);
             if (r) {
@@ -4812,6 +4599,20 @@
               renderResorts();
               openLightbox(id);
             }
+          } else if (action === 'lb-dot' && id) {
+            state.carouselIndex[id] = parseInt(btn.getAttribute('data-idx'), 10) || 0;
+            renderResorts();
+            openLightbox(id);
+          } else if (action === 'lb-cat' && id) {
+            const selectedCat = btn.getAttribute('data-cat') || 'Alla';
+            state.galleryCategory[id] = selectedCat;
+            const r = RESORTS.find(item => item.id === id);
+            if (r && selectedCat !== 'Alla') {
+              const firstMatch = r.images.findIndex(function (im) { return im.group === selectedCat; });
+              if (firstMatch !== -1) state.carouselIndex[id] = firstMatch;
+            }
+            renderResorts();
+            openLightbox(id);
           }
         });
       });
@@ -4821,15 +4622,14 @@
       });
 
       /* ========================================================================
-         7. STARTA APPLIKATIONEN & AUTOMATISK BILDSYNKNING
+         7. STARTA APPLIKATIONEN & HÄMTA GOOGLE-BILDER I BAKGRUNDEN
          ======================================================================== */
       loadState();
       syncUrlHash();
       renderAll();
 
-      // Starta automatisk bildhämtning från nätet i bakgrunden direkt vid sidladdning
       setTimeout(function () {
-        autoSyncAllHotelImages(false);
+        autoFetchImagesFromGoogleLinks();
       }, 300);
     });
   </script>
